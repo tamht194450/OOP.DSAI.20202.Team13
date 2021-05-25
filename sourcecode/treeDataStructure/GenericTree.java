@@ -61,17 +61,17 @@ public class GenericTree {
 	}
 	
 	public void traversalBFS() {
-		state = 1;
+		state = 2;
 		KeyFrame popQueue = new KeyFrame(Duration.seconds(1), 
 				new EventHandler<ActionEvent>() {
 			  		public void handle(ActionEvent event) {
-			  			if (state == 1) { 
+			  			if (state == 2) { 
 			  				if (!queue.isEmpty()) {
 				  				currentNode = queue.getFirst();
 				  				queue.removeFirst();
 				  				traveledNode.add(currentNode);
-				  				currentNode.getCircle().setFill(Color.LIGHTBLUE);
-				  				state = 2;
+				  				currentNode.setState(state);
+				  				state = 1;
 			  				} else {
 			  					timeline.stop();
 			  				}
@@ -81,14 +81,14 @@ public class GenericTree {
 		KeyFrame pushQueue = new KeyFrame(Duration.seconds(2), 
 				new EventHandler<ActionEvent>() {
 			  		public void handle(ActionEvent event) {
-			  			if (state == 2) {
+			  			if (state == 1) {
 			  				if (!currentNode.getChildNodes().isEmpty()) {
 			  					for (Node node: currentNode.getChildNodes()) {
 			  						queue.add(node);
-			  						node.getCircle().setFill(Color.LIGHTYELLOW);
+			  						node.setState(state);
 			  					}
 			  				}
-			  				state = 1;
+			  				state = 2;
 			  			}
 			  		}
 			} );	
@@ -124,21 +124,42 @@ public class GenericTree {
 		}
 	}
 	public void backBFS() {
-		if (state == 1) {
+		if (state == 2) {
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
 					queue.removeLast();
-					node.getCircle().setFill(Color.WHITE);
+					node.setState(0);
 				}
 			}
 			timeline.setCycleCount(timeline.getCycleCount()+1);
-			state = 2;
-		} else if (state == 2) {
+			state = 1;
+		} else if (state == 1) {
 			queue.addFirst(currentNode);
-			currentNode.getCircle().setFill(Color.LIGHTYELLOW);
+			currentNode.setState(1);
 			traveledNode.removeLast();
 			currentNode = traveledNode.getLast();
-			state = 1;
+			state = 2;
+		}
+	}
+	public void forwardBFS() {
+		if (state == 2) {
+			if (!queue.isEmpty()) {
+  				currentNode = queue.getFirst();
+  				queue.removeFirst();
+  				traveledNode.add(currentNode);
+  				currentNode.setState(state);
+  				state = 1;
+			} else {
+				timeline.stop();
+			}
+		} else if (state == 1) {
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					queue.add(node);
+					node.setState(state);
+				}
+			}
+			state = 2;
 		}
 	}
 
