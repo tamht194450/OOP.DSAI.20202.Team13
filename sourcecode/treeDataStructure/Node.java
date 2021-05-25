@@ -13,13 +13,13 @@ import javafx.scene.text.Text;
 public class Node extends StackPane{
 	public static LinkedList<Integer> listValue = new LinkedList<>();
 	private int value;
-	private int state = 0;
 	private LinkedList<Node> childNodes = new LinkedList<Node>();
 	private Node parentNode;
 	private Circle circle;
 	private Text nodeValue;
 	private Line parentLine;
 	private int depth = 1;
+	private int state = 1;
 
 	public int getDepth() {
 		return depth;
@@ -123,7 +123,7 @@ public class Node extends StackPane{
 	public Circle getCircle() {
 		return circle;
 	}
-
+	
 	public void setState(int state) {
 		this.state = state;
 		if (state == 0) {
@@ -134,6 +134,6 @@ public class Node extends StackPane{
 			circle.setFill(Color.LIGHTBLUE);
 		}
 	}
-	
 
 }
+

@@ -96,7 +96,7 @@ public class TreeScreenController {
     }
     @FXML
     void btnBackPressed(ActionEvent event) {
-    	tree.forwardBFS();
+    	tree.backBFS();
     }
 
     @FXML
