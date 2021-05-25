@@ -1,6 +1,7 @@
 package treeScreen;
 
 import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,23 +22,37 @@ import treeDataStructure.Node;
 public class TreeScreenController {
 	private GenericTree tree;
 	private TreeScreen treeScreen;
-	
+    private StackPane rootNode;
+
     @FXML
-    private TextField tfChild;
-    
-    @FXML
-    private VBox boxControl;
-    
-    @FXML
-    private HBox boxNevigate;
-    
+    private TextField tfDelete;
+
     @FXML
     private ToggleGroup toggleControl;
 
     @FXML
+    private VBox boxControl;
+
+    @FXML
+    private TextField tfUpdateNewValue;
+
+    @FXML
+    private TextField tfChild;
+
+    @FXML
     private Pane drawingTreePane;
 
-    private StackPane rootNode;
+    @FXML
+    private TextField tfSearchFor;
+
+    @FXML
+    private HBox boxNevigate;
+
+    @FXML
+    private TextField tfUpdateOldValue;
+
+    @FXML
+    private ToggleGroup toggleTraversal;
 
     @FXML
     private TextField tfParent;
@@ -55,13 +70,13 @@ public class TreeScreenController {
 	
     @FXML
     void btnAddNodePressed(ActionEvent event) {
+        if (!Node.listValue.contains(Integer.parseInt(this.tfChild.getText()))) {
+            Node childNode = new Node(Integer.parseInt(this.tfChild.getText()));
+            tree.insertNode(Integer.parseInt(tfParent.getText()), childNode);
 
-    	Node childNode = new Node(Integer.parseInt(this.tfChild.getText()));
-    	tree.insertNode(Integer.parseInt(tfParent.getText()), childNode);
-    	
-    	this.drawingTreePane.getChildren().add(childNode);
-    	this.drawingTreePane.getChildren().add(childNode.getParentLine());
-    	
+            this.drawingTreePane.getChildren().add(childNode);
+            this.drawingTreePane.getChildren().add(childNode.getParentLine());
+        }
     }
     
     @FXML
@@ -82,5 +97,43 @@ public class TreeScreenController {
     @FXML
     void btnBackPressed(ActionEvent event) {
     	tree.backBFS();
+    }
+
+    @FXML
+    void btnDeleteNodePressed(ActionEvent event) {
+        if (Node.listValue.indexOf(Integer.parseInt(this.tfDelete.getText())) != -1) {
+            deleteNode(Integer.parseInt(this.tfDelete.getText()));
+        }
+    }
+
+    public void deleteNode(int deletedValue) {
+        Node deleteNode = tree.searchNode(deletedValue);
+        Node.listValue.remove(Node.listValue.indexOf(deleteNode.getValue()));
+        this.drawingTreePane.getChildren().remove(deleteNode.getParentLine());
+        this.drawingTreePane.getChildren().remove(deleteNode);
+        for (Node node:deleteNode.getChildNodes()){
+            deleteNode(node.getValue());
+        }
+    }
+
+    @FXML
+    void buttonUpdate(ActionEvent event) {
+        Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
+        Node newNode = new Node(Integer.parseInt(this.tfUpdateNewValue.getText()));
+
+        this.drawingTreePane.getChildren().remove(oldNode);
+        newNode.setLayoutX(oldNode.getLayoutX());
+        newNode.setLayoutY(oldNode.getLayoutY());
+        newNode.setChildNodes(oldNode.getChildNodes());
+        this.drawingTreePane.getChildren().add(newNode);
+
+    }
+
+    @FXML
+    void btnSearchPressed(ActionEvent event) {
+        Node node = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
+        node.getCircle().setFill(Color.LIGHTGREEN);
+
+        Timeline timeline  = new Timeline();
     }
 }
