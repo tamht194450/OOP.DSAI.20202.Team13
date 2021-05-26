@@ -25,6 +25,8 @@ import javafx.util.Duration;
 import treeDataStructure.GenericTree;
 import treeDataStructure.Node;
 
+import java.util.LinkedList;
+
 public class TreeScreenController {
 	private GenericTree tree;
 	private TreeScreen treeScreen;
@@ -171,6 +173,8 @@ public class TreeScreenController {
         Node.listValue.remove(Node.listValue.indexOf(deleteNode.getValue()));
         this.drawingTreePane.getChildren().remove(deleteNode.getParentLine());
         this.drawingTreePane.getChildren().remove(deleteNode);
+        Node parent = deleteNode.getParentNode();
+        parent.getChildNodes().remove(deleteNode);
         for (Node node:deleteNode.getChildNodes()){
             deleteNode(node.getValue());
         }
@@ -178,23 +182,78 @@ public class TreeScreenController {
 
     @FXML
     void buttonUpdate(ActionEvent event) {
-        Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
-        Node newNode = new Node(Integer.parseInt(this.tfUpdateNewValue.getText()));
+        if (!Node.listValue.contains(Integer.parseInt(this.tfUpdateNewValue.getText()))) {
+            Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
+            Node newNode = new Node(Integer.parseInt(this.tfUpdateNewValue.getText()));
 
-        this.drawingTreePane.getChildren().remove(oldNode);
-        newNode.setLayoutX(oldNode.getLayoutX());
-        newNode.setLayoutY(oldNode.getLayoutY());
-        newNode.setChildNodes(oldNode.getChildNodes());
-        this.drawingTreePane.getChildren().add(newNode);
+            this.drawingTreePane.getChildren().remove(oldNode);
+            newNode.setLayoutX(oldNode.getLayoutX());
+            newNode.setLayoutY(oldNode.getLayoutY());
+            this.drawingTreePane.getChildren().add(newNode);
 
+            newNode.setChildNodes(oldNode.getChildNodes());
+            Node parent = oldNode.getParentNode();
+            parent.getChildNodes().add(newNode);
+            Node.listValue.remove(Integer.parseInt(this.tfUpdateOldValue.getText()));
+        } else {
+            // todo
+        }
     }
 
     @FXML
-    void btnSearchPressed(ActionEvent event) {
-        Node node = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
-        node.getCircle().setFill(Color.LIGHTGREEN);
+    void btnSearchPressed(ActionEvent event) {           // the same as method traversalBFS in GenericTree, only add an extra condition
+	    Node searchedNode = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
+        Timeline timeline = new Timeline();
+        tree.setState(1);
+        KeyFrame popQueue = new KeyFrame(Duration.seconds(1),
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent event) {
+                        if (tree.getState() == 1) {
+                            if (!tree.getQueue().isEmpty()) {
+                                tree.setCurrentNode(tree.getQueue().getFirst());
+                                tree.getQueue().removeFirst();
+                                tree.getTraveledNode().add(tree.getCurrentNode());
+                                tree.getCurrentNode().getCircle().setFill(Color.LIGHTBLUE);
+                                tree.setState(2);
 
-        Timeline timeline  = new Timeline();
+                                if (tree.getCurrentNode() == searchedNode){         //extra condition
+                                    for (int i:Node.listValue){
+                                        Node node = tree.searchNode(i);
+                                        node.getCircle().setFill(Color.WHITE);
+                                    }
+                                    tree.getCurrentNode().getCircle().setFill(Color.GREEN);
+                                    timeline.stop();
+                                }
+
+                            } else {
+                                timeline.stop();
+                            }
+                        }
+                    }
+                } );
+        KeyFrame pushQueue = new KeyFrame(Duration.seconds(2),
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent event) {
+                        if (tree.getState() == 2) {
+                            if (!tree.getCurrentNode().getChildNodes().isEmpty()) {
+                                for (Node node: tree.getCurrentNode().getChildNodes()) {
+                                    tree.getQueue().add(node);
+                                    node.getCircle().setFill(Color.LIGHTYELLOW);
+                                }
+                            }
+                            tree.setState(1);
+                        }
+                    }
+                } );
+
+        tree.setQueue(new LinkedList<Node>());
+        tree.setTraveledNode(new LinkedList<Node>());
+        tree.getQueue().add(tree.getRootNode());
+
+        timeline.getKeyFrames().add(popQueue);
+        timeline.getKeyFrames().add(pushQueue);
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
     void traversalBFS() {
     	boxControl.setVisible(true);

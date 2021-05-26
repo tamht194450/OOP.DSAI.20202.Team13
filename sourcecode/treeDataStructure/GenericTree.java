@@ -59,8 +59,8 @@ public class GenericTree {
 	public Node getRootNode() {
 		return rootNode;
 	}
-	
-	
+
+
 	public void backBFS() {
 		if (state == 2) {
 			if (!currentNode.getChildNodes().isEmpty()) {
