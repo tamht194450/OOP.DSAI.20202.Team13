@@ -19,6 +19,7 @@ public class Node extends StackPane{
 	private Text nodeValue;
 	private Line parentLine;
 	private int depth = 1;
+	private int state = 1;
 
 	public int getDepth() {
 		return depth;
@@ -123,5 +124,16 @@ public class Node extends StackPane{
 		return circle;
 	}
 	
+	public void setState(int state) {
+		this.state = state;
+		if (state == 0) {
+			circle.setFill(Color.WHITE);
+		} else if (state == 1) {
+			circle.setFill(Color.LIGHTYELLOW);
+		} else if (state == 2) {
+			circle.setFill(Color.LIGHTBLUE);
+		}
+	}
 
 }
+
