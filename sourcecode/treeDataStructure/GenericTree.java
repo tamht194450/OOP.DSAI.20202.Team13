@@ -88,7 +88,7 @@ public class GenericTree {
   				currentNode.setState(state);
   				state = 1;
 			} else {
-				timeline.stop();
+				timeline.pause();
 			}
 		} else if (state == 1) {
 			if (!currentNode.getChildNodes().isEmpty()) {
@@ -101,6 +101,23 @@ public class GenericTree {
 		}
 	}
 
+	public void updateState() {
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(rootNode);
+		Node currentNode;
+		
+		while(!queue.isEmpty()) {
+			currentNode = queue.getFirst();
+			currentNode.setState(0);
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					queue.add(node);
+				}
+			}
+			queue.removeFirst();
+		}
+	}
+	
 	public Timeline getTimeline() {
 		return timeline;
 	}
