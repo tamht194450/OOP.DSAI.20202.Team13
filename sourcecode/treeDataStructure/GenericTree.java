@@ -62,36 +62,13 @@ public class GenericTree {
 	
 	public void traversalBFS() {
 		state = 2;
-		KeyFrame popQueue = new KeyFrame(Duration.seconds(1), 
+		KeyFrame step = new KeyFrame(Duration.seconds(1), 
 				new EventHandler<ActionEvent>() {
 			  		public void handle(ActionEvent event) {
-			  			if (state == 2) { 
-			  				if (!queue.isEmpty()) {
-				  				currentNode = queue.getFirst();
-				  				queue.removeFirst();
-				  				traveledNode.add(currentNode);
-				  				currentNode.setState(state);
-				  				state = 1;
-			  				} else {
-			  					timeline.stop();
-			  				}
-			  			}
+			  			forwardBFS();
 			  		}
 			} );
-		KeyFrame pushQueue = new KeyFrame(Duration.seconds(2), 
-				new EventHandler<ActionEvent>() {
-			  		public void handle(ActionEvent event) {
-			  			if (state == 1) {
-			  				if (!currentNode.getChildNodes().isEmpty()) {
-			  					for (Node node: currentNode.getChildNodes()) {
-			  						queue.add(node);
-			  						node.setState(state);
-			  					}
-			  				}
-			  				state = 2;
-			  			}
-			  		}
-			} );	
+	
 		
 		queue = new LinkedList<Node>();
 		traveledNode = new LinkedList<Node>();
@@ -99,8 +76,7 @@ public class GenericTree {
 		
 		timeline = new Timeline();
 
-		timeline.getKeyFrames().add(popQueue);
-		timeline.getKeyFrames().add(pushQueue);
+		timeline.getKeyFrames().add(step);
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
 		}
@@ -165,6 +141,30 @@ public class GenericTree {
 
 	public Timeline getTimeline() {
 		return timeline;
+	}
+
+	public LinkedList<Node> getQueue() {
+		return queue;
+	}
+
+	public void setQueue(LinkedList<Node> queue) {
+		this.queue = queue;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setTraveledNode(LinkedList<Node> traveledNode) {
+		this.traveledNode = traveledNode;
+	}
+
+	public void setTimeline(Timeline timeline) {
+		this.timeline = timeline;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 
 	

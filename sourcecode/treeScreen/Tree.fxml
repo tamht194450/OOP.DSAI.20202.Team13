@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -10,7 +11,23 @@
 
 <BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Pane fx:id="drawingTreePane" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="drawingTreePane" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="bfsPseudoCode" layoutX="567.0" layoutY="342.0" prefHeight="212.0" prefWidth="450.0" visible="false">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebc8a0" height="30.0" stroke="WHITE" strokeType="INSIDE" width="450.0" />
+                  <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q.enqueue(root)" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebc8a0" height="30.0" layoutY="35.0" stroke="WHITE" strokeType="INSIDE" width="450.0" />
+                  <Text layoutX="20.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="while q is not empty:" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebc8a0" height="30.0" layoutY="105.0" stroke="WHITE" strokeType="INSIDE" width="450.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebc8a0" height="30.0" layoutY="70.0" stroke="WHITE" strokeType="INSIDE" width="450.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebc8a0" height="30.0" layoutY="140.0" stroke="WHITE" strokeType="INSIDE" width="450.0" />
+                  <Text layoutX="70.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="u = q.dequeue()" />
+                  <Text layoutX="70.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="for child v of u:" />
+                  <Text layoutX="120.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q.enqueue(v)" />
+               </children>
+            </Pane>
+         </children></Pane>
    </center>
    <top>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -222,7 +239,7 @@
                                           <Insets left="10.0" top="10.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" text="Foward">
+                                    <Button mnemonicParsing="false" onAction="#btnForwardPressed" text="Foward">
                                        <HBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </HBox.margin>

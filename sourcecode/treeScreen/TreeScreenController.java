@@ -1,5 +1,7 @@
 package treeScreen;
 
+import java.util.LinkedList;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -56,6 +58,9 @@ public class TreeScreenController {
 
     @FXML
     private TextField tfParent;
+    
+    @FXML
+    private Pane bfsPseudoCode;
 
 	public TreeScreenController(GenericTree tree) {
 		super();
@@ -82,7 +87,26 @@ public class TreeScreenController {
     @FXML
     void btnRunPressed(ActionEvent event) {
     	boxControl.setVisible(true);
-    	this.tree.traversalBFS();
+    	this.bfsPseudoCode.setVisible(true);
+    	
+    	KeyFrame step = new KeyFrame(Duration.seconds(1), 
+				new EventHandler<ActionEvent>() {
+			  		public void handle(ActionEvent event) {
+			  			tree.forwardBFS();
+			  		}
+			} );
+    	tree.setState(2);
+    	tree.setQueue(new LinkedList<Node>());
+    	tree.setTraveledNode(new LinkedList<Node>());
+    	tree.getQueue().add(tree.getRootNode());
+    	
+    	Timeline timeline = new Timeline();
+    	timeline.getKeyFrames().add(step);
+    	timeline.setCycleCount(Timeline.INDEFINITE);
+    	
+    	tree.setTimeline(timeline);
+    	tree.getTimeline().play();
+    	
     }
     @FXML
     void btnPausePressed(ActionEvent event) {
@@ -97,6 +121,11 @@ public class TreeScreenController {
     @FXML
     void btnBackPressed(ActionEvent event) {
     	tree.backBFS();
+    }
+
+    @FXML
+    void btnForwardPressed(ActionEvent event) {
+    	tree.forwardBFS();
     }
 
     @FXML
