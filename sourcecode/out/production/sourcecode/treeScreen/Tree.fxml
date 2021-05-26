@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -10,7 +11,27 @@
 
 <BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <Pane fx:id="drawingTreePane" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+      <Pane fx:id="drawingTreePane" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle fx:id="pseudoCode1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="700.0" layoutY="377.0" stroke="WHITE" strokeType="INSIDE" visible="false" width="300.0" />
+            <Rectangle fx:id="pseudoCode2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="700.0" layoutY="412.0" stroke="WHITE" strokeType="INSIDE" visible="false" width="300.0" />
+            <Rectangle fx:id="pseudoCode3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="700.0" layoutY="447.0" stroke="WHITE" strokeType="INSIDE" visible="false" width="300.0" />
+            <Rectangle fx:id="pseudoCode4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="700.0" layoutY="482.0" stroke="WHITE" strokeType="INSIDE" visible="false" width="300.0" />
+            <Pane fx:id="bfsPseudoCode" layoutX="700.0" layoutY="342.0" prefHeight="212.0" prefWidth="300.0" visible="false">
+               <children>
+                  <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q.enqueue(root)" />
+                  <Text layoutX="20.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="while q is not empty:" />
+                  <Text layoutX="70.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="u = q.dequeue()" />
+                  <Text layoutX="70.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="for child v of u:" />
+                  <Text layoutX="120.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q.enqueue(v)" />
+               </children>
+            </Pane>
+            <FlowPane fx:id="queueFlowPane" alignment="CENTER_LEFT" layoutX="40.0" layoutY="450.0" maxHeight="65.0" minHeight="65.0" minWidth="450.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="450.0" rowValignment="TOP">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </FlowPane>
+         </children></Pane>
    </center>
    <top>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
@@ -188,11 +209,20 @@
                                           <Insets left="10.0" top="10.0" />
                                        </VBox.margin>
                                     </RadioButton>
-                                    <Button mnemonicParsing="false" onAction="#btnRunPressed" text="Run">
-                                       <VBox.margin>
-                                          <Insets left="10.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Button>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="btnRun" mnemonicParsing="false" onAction="#btnRunPressed" text="Run">
+                                             <HBox.margin>
+                                                <Insets left="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnStop" mnemonicParsing="false" onAction="#btnStopPressed" text="Stop" visible="false">
+                                             <HBox.margin>
+                                                <Insets left="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox fx:id="boxControl" prefHeight="200.0" prefWidth="100.0" visible="false">
@@ -222,7 +252,7 @@
                                           <Insets left="10.0" top="10.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" text="Foward">
+                                    <Button mnemonicParsing="false" onAction="#btnForwardPressed" text="Foward">
                                        <HBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </HBox.margin>

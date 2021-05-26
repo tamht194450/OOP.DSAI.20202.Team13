@@ -116,7 +116,7 @@ public class Node extends StackPane{
 		return parentNode;
 	}
 
-	private void setParentNode(Node parentNode) {
+	public void setParentNode(Node parentNode) {
 		this.parentNode = parentNode;
 	}
 
@@ -134,6 +134,7 @@ public class Node extends StackPane{
 			circle.setFill(Color.LIGHTBLUE);
 		}
 	}
+
 
 }
 
