@@ -60,45 +60,7 @@ public class GenericTree {
 		return rootNode;
 	}
 	
-	public void traversalBFS() {
-		state = 2;
-		KeyFrame step = new KeyFrame(Duration.seconds(1), 
-				new EventHandler<ActionEvent>() {
-			  		public void handle(ActionEvent event) {
-			  			forwardBFS();
-			  		}
-			} );
 	
-		
-		queue = new LinkedList<Node>();
-		traveledNode = new LinkedList<Node>();
-		queue.add(rootNode);
-		
-		timeline = new Timeline();
-
-		timeline.getKeyFrames().add(step);
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
-		}
-	
-	public void nextStepBFS() {
-		if (!traveledNode.isEmpty()) {
-			traveledNode.getLast().getCircle().setFill(Color.LIGHTGREEN);
-		}
-		if (!queue.isEmpty()) {
-			currentNode = this.queue.getFirst();
-			currentNode.getCircle().setFill(Color.LIGHTBLUE);
-	    	
-			if (!currentNode.getChildNodes().isEmpty()) {
-				for (Node node: currentNode.getChildNodes()) {
-					node.getCircle().setFill(Color.LIGHTYELLOW);
-					queue.add(node);
-				}
-			}
-			traveledNode.add(currentNode);
-			queue.removeFirst();
-		}
-	}
 	public void backBFS() {
 		if (state == 2) {
 			if (!currentNode.getChildNodes().isEmpty()) {
