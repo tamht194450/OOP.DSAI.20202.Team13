@@ -75,7 +75,7 @@
                            <children>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Label text="Node Vaue">
+                                    <Label text="Node Value">
                                        <font>
                                           <Font size="20.0" />
                                        </font>

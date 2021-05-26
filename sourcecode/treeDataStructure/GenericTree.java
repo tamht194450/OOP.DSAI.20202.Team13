@@ -59,7 +59,39 @@ public class GenericTree {
 	public Node getRootNode() {
 		return rootNode;
 	}
-	
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public LinkedList<Node> getTraveledNode() {
+		return traveledNode;
+	}
+
+	public void setTraveledNode(LinkedList<Node> traveledNode) {
+		this.traveledNode = traveledNode;
+	}
+
+	public LinkedList<Node> getQueue() {
+		return queue;
+	}
+
+	public Node getCurrentNode() {
+		return currentNode;
+	}
+
+	public void setCurrentNode(Node currentNode) {
+		this.currentNode = currentNode;
+	}
+
+	public void setQueue(LinkedList<Node> queue) {
+		this.queue = queue;
+	}
+
 	public void traversalBFS() {
 		state = 1;
 		KeyFrame popQueue = new KeyFrame(Duration.seconds(1), 
