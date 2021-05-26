@@ -146,6 +146,15 @@ public class GenericTree {
 		this.state = state;
 	}
 
-	
-	
+	public LinkedList<Node> getTraveledNode() {
+		return traveledNode;
+	}
+
+	public Node getCurrentNode() {
+		return currentNode;
+	}
+
+	public void setCurrentNode(Node currentNode) {
+		this.currentNode = currentNode;
+	}
 }
