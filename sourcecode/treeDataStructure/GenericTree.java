@@ -60,90 +60,90 @@ public class GenericTree {
 		return rootNode;
 	}
 	
-	public void traversalBFS() {
-		state = 1;
-		KeyFrame popQueue = new KeyFrame(Duration.seconds(1), 
-				new EventHandler<ActionEvent>() {
-			  		public void handle(ActionEvent event) {
-			  			if (state == 1) { 
-			  				if (!queue.isEmpty()) {
-				  				currentNode = queue.getFirst();
-				  				queue.removeFirst();
-				  				traveledNode.add(currentNode);
-				  				currentNode.getCircle().setFill(Color.LIGHTBLUE);
-				  				state = 2;
-			  				} else {
-			  					timeline.stop();
-			  				}
-			  			}
-			  		}
-			} );
-		KeyFrame pushQueue = new KeyFrame(Duration.seconds(2), 
-				new EventHandler<ActionEvent>() {
-			  		public void handle(ActionEvent event) {
-			  			if (state == 2) {
-			  				if (!currentNode.getChildNodes().isEmpty()) {
-			  					for (Node node: currentNode.getChildNodes()) {
-			  						queue.add(node);
-			  						node.getCircle().setFill(Color.LIGHTYELLOW);
-			  					}
-			  				}
-			  				state = 1;
-			  			}
-			  		}
-			} );	
-		
-		queue = new LinkedList<Node>();
-		traveledNode = new LinkedList<Node>();
-		queue.add(rootNode);
-		
-		timeline = new Timeline();
-
-		timeline.getKeyFrames().add(popQueue);
-		timeline.getKeyFrames().add(pushQueue);
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
-		}
 	
-	public void nextStepBFS() {
-		if (!traveledNode.isEmpty()) {
-			traveledNode.getLast().getCircle().setFill(Color.LIGHTGREEN);
-		}
-		if (!queue.isEmpty()) {
-			currentNode = this.queue.getFirst();
-			currentNode.getCircle().setFill(Color.LIGHTBLUE);
-	    	
-			if (!currentNode.getChildNodes().isEmpty()) {
-				for (Node node: currentNode.getChildNodes()) {
-					node.getCircle().setFill(Color.LIGHTYELLOW);
-					queue.add(node);
-				}
-			}
-			traveledNode.add(currentNode);
-			queue.removeFirst();
-		}
-	}
 	public void backBFS() {
-		if (state == 1) {
+		if (state == 2) {
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
 					queue.removeLast();
-					node.getCircle().setFill(Color.WHITE);
+					node.setState(0);
 				}
 			}
 			timeline.setCycleCount(timeline.getCycleCount()+1);
-			state = 2;
-		} else if (state == 2) {
+			state = 1;
+		} else if (state == 1) {
 			queue.addFirst(currentNode);
-			currentNode.getCircle().setFill(Color.LIGHTYELLOW);
+			currentNode.setState(1);
 			traveledNode.removeLast();
 			currentNode = traveledNode.getLast();
-			state = 1;
+			state = 2;
+		}
+	}
+	public void forwardBFS() {
+		if (state == 2) {
+			if (!queue.isEmpty()) {
+  				currentNode = queue.getFirst();
+  				queue.removeFirst();
+  				traveledNode.add(currentNode);
+  				currentNode.setState(state);
+  				state = 1;
+			} else {
+				timeline.pause();
+			}
+		} else if (state == 1) {
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					queue.add(node);
+					node.setState(state);
+				}
+			}
+			state = 2;
 		}
 	}
 
+	public void updateState() {
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(rootNode);
+		Node currentNode;
+		
+		while(!queue.isEmpty()) {
+			currentNode = queue.getFirst();
+			currentNode.setState(0);
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					queue.add(node);
+				}
+			}
+			queue.removeFirst();
+		}
+	}
+	
 	public Timeline getTimeline() {
 		return timeline;
+	}
+
+	public LinkedList<Node> getQueue() {
+		return queue;
+	}
+
+	public void setQueue(LinkedList<Node> queue) {
+		this.queue = queue;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setTraveledNode(LinkedList<Node> traveledNode) {
+		this.traveledNode = traveledNode;
+	}
+
+	public void setTimeline(Timeline timeline) {
+		this.timeline = timeline;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 
 	

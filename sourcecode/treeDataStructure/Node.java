@@ -11,15 +11,27 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 public class Node extends StackPane{
+	public static LinkedList<Integer> listValue = new LinkedList<>();
 	private int value;
 	private LinkedList<Node> childNodes = new LinkedList<Node>();
 	private Node parentNode;
 	private Circle circle;
 	private Text nodeValue;
 	private Line parentLine;
+	private int depth = 1;
+	private int state = 1;
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
 	
 	public Node(int value) {
 		this.value = value;
+		listValue.add(this.value);
 		this.setPrefSize(60, 60);
 		this.parentLine = new Line();
 		
@@ -48,6 +60,7 @@ public class Node extends StackPane{
 		
 		this.childNodes.add(childNode);
 		childNode.setParentNode(this);
+		childNode.setDepth(this.getDepth()+1);
 	}
 	
 	public void addUpdate() {
@@ -69,8 +82,12 @@ public class Node extends StackPane{
 			queue.removeFirst();
 		}
 	}
-	
-    public boolean equals(Object o) {
+
+	public void setChildNodes(LinkedList<Node> childNodes) {
+		this.childNodes = childNodes;
+	}
+
+	public boolean equals(Object o) {
     	if (o instanceof Node) {
     		Node node = (Node) o;
     		if (node.value == this.value) {
@@ -107,5 +124,16 @@ public class Node extends StackPane{
 		return circle;
 	}
 	
+	public void setState(int state) {
+		this.state = state;
+		if (state == 0) {
+			circle.setFill(Color.WHITE);
+		} else if (state == 1) {
+			circle.setFill(Color.LIGHTYELLOW);
+		} else if (state == 2) {
+			circle.setFill(Color.LIGHTBLUE);
+		}
+	}
 
 }
+
