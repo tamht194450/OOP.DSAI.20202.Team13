@@ -62,6 +62,15 @@ public class Node extends StackPane{
 		childNode.setParentNode(this);
 		childNode.setDepth(this.getDepth()+1);
 	}
+	public void deleteChild(int nodeValue) {
+        Node.listValue.remove(Node.listValue.indexOf(nodeValue));
+
+		for (Node node: this.childNodes) {
+			if (node.getValue() == nodeValue) {
+				this.childNodes.remove(node);
+			}
+		}
+	}
 	
 	public void addUpdate() {
 		LinkedList<Node> queue = new LinkedList<Node>();
@@ -74,6 +83,25 @@ public class Node extends StackPane{
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
 					node.setLayoutX(node.getLayoutX()-40);
+					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
+					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
+					queue.add(node);
+				}
+			}
+			queue.removeFirst();
+		}
+	}
+	public void deleteUpdate() {
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(this);
+		Node currentNode;
+		
+		while(!queue.isEmpty()) {
+			currentNode = queue.getFirst();
+			
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					node.setLayoutX(node.getLayoutX()+40);
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);

@@ -55,6 +55,29 @@ public class GenericTree {
 		numberOfNodes ++;
 		return true;
 	}
+	public boolean deleteNode(int nodeValue) {
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(rootNode);
+		Node currentNode;
+		
+		while(!queue.isEmpty()) {
+			currentNode = queue.getFirst();
+			
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					if (node.getValue() == nodeValue) {
+						currentNode.deleteChild(nodeValue);
+						currentNode.deleteUpdate();
+						return true;
+					} else {
+						queue.add(node);
+					}
+				}
+			}
+			queue.removeFirst();
+		}
+		return false;
+	}
 
 	public Node getRootNode() {
 		return rootNode;
@@ -163,6 +186,7 @@ public class GenericTree {
 			queue.removeFirst();
 		}
 	}
+
 	
 	public Timeline getTimeline() {
 		return timeline;
