@@ -192,6 +192,11 @@ public class GenericTree {
 		this.state = state;
 	}
 
+
+	public LinkedList<Node> getTraveledNode() {
+		return traveledNode;
+	}
+
 	public Node getCurrentNode() {
 		return currentNode;
 	}
@@ -200,10 +205,4 @@ public class GenericTree {
 		this.currentNode = currentNode;
 	}
 
-	public LinkedList<Node> getTraveledNode() {
-		return traveledNode;
-	}
-
-	
-	
 }

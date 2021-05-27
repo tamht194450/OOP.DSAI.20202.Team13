@@ -26,6 +26,7 @@ import javafx.util.Duration;
 import treeDataStructure.GenericTree;
 import treeDataStructure.Node;
 
+import javax.swing.*;
 import java.util.LinkedList;
 
 public class TreeScreenController {
@@ -113,6 +114,8 @@ public class TreeScreenController {
 
             this.drawingTreePane.getChildren().add(childNode);
             this.drawingTreePane.getChildren().add(childNode.getParentLine());
+        } else {
+            JOptionPane.showMessageDialog(null, "Added node already exist!");
         }
     }
     
@@ -203,6 +206,8 @@ public class TreeScreenController {
     void btnDeleteNodePressed(ActionEvent event) {
         if (Node.listValue.indexOf(Integer.parseInt(this.tfDelete.getText())) != -1) {
             deleteNode(Integer.parseInt(this.tfDelete.getText()));
+        } else{
+            JOptionPane.showMessageDialog(null, "Provided node not found!");
         }
     }
 
@@ -231,10 +236,11 @@ public class TreeScreenController {
 
             newNode.setChildNodes(oldNode.getChildNodes());
             Node parent = oldNode.getParentNode();
+            newNode.setParentNode(parent);
             parent.getChildNodes().add(newNode);
             Node.listValue.remove(Integer.parseInt(this.tfUpdateOldValue.getText()));
         } else {
-            // todo
+            JOptionPane.showMessageDialog(null, "Node not found!");
         }
     }
 
