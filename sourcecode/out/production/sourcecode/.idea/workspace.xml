@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d1f52c0-bbe2-46da-818a-96e818d91ef2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OOP.DSAI.20202.Team13.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeDataStructure/GenericTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/GenericTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeDataStructure/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/Tree.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-<<<<<<< HEAD
-    <setting file="file://$PROJECT_DIR$/sourcecode/treeScreen/Tree.fxml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sourcecode/treeDataStructure/GenericTree.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sourcecode/treeDataStructure/Node.java" root0="FORCE_HIGHLIGHTING" />
-=======
-    <setting file="file://$PROJECT_DIR$/sourcecode/treeDataStructure/GenericTree.java" root0="FORCE_HIGHLIGHTING" />
->>>>>>> d418aa4eb924cf7974d39962410356ad293e373b
-  </component>
-  <component name="ProjectId" id="1t2525d1JLMyBDZ7gEGZqwFtynt" />
+  <component name="ProjectId" id="1t27GEvPSolYzn0AnYr86lN8AvT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,18 +42,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.115555584" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="ReaderModeSettings">
-    <option name="enabled" value="false" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/treeScreen" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.Test" />
-      <module name="OOP.DSAI.20202.Team13" />
+      <module name="sourcecode" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="test.*" />
@@ -53,15 +66,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -75,15 +86,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4d1f52c0-bbe2-46da-818a-96e818d91ef2" name="Default Changelist" comment="" />
-      <created>1621954132850</created>
+      <changelist id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="" />
+      <created>1621955232187</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1621954132850</updated>
-      <workItem from="1621954139258" duration="1045000" />
-      <workItem from="1621955216287" duration="9000" />
-      <workItem from="1621957450132" duration="175000" />
-      <workItem from="1621957840313" duration="951000" />
+      <updated>1621955232187</updated>
+      <workItem from="1621955233385" duration="6492000" />
+      <workItem from="1622034580081" duration="4737000" />
     </task>
     <servers />
   </component>

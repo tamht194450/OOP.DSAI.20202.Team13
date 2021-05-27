@@ -1,12 +1,17 @@
 package treeScreen;
 
+import java.util.LinkedList;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -14,10 +19,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import treeDataStructure.GenericTree;
 import treeDataStructure.Node;
+
+import javax.swing.*;
+import java.util.LinkedList;
 
 public class TreeScreenController {
 	private GenericTree tree;
@@ -56,6 +65,30 @@ public class TreeScreenController {
 
     @FXML
     private TextField tfParent;
+    
+    @FXML
+    private Pane bfsPseudoCode;
+    
+    @FXML
+    private Rectangle pseudoCode1;
+
+    @FXML
+    private Rectangle pseudoCode2;
+
+    @FXML
+    private Rectangle pseudoCode3;
+
+    @FXML
+    private Rectangle pseudoCode4;
+    
+    @FXML
+    private Button btnRun;
+    
+    @FXML
+    private Button btnStop;
+
+    @FXML
+    private FlowPane queueFlowPane;
 
 	public TreeScreenController(GenericTree tree) {
 		super();
@@ -76,13 +109,20 @@ public class TreeScreenController {
 
             this.drawingTreePane.getChildren().add(childNode);
             this.drawingTreePane.getChildren().add(childNode.getParentLine());
+        } else {
+            JOptionPane.showMessageDialog(null, "Added node already exist!");
         }
     }
     
     @FXML
     void btnRunPressed(ActionEvent event) {
-    	boxControl.setVisible(true);
-    	this.tree.traversalBFS();
+    	btnRun.setVisible(false);
+    	btnStop.setVisible(true);
+    	pseudoCode1.setVisible(true);
+    	pseudoCode2.setVisible(true);
+    	pseudoCode3.setVisible(true);
+    	pseudoCode4.setVisible(true);
+    	traversalBFS();
     }
     @FXML
     void btnPausePressed(ActionEvent event) {
@@ -96,13 +136,40 @@ public class TreeScreenController {
     }
     @FXML
     void btnBackPressed(ActionEvent event) {
+    	codeBFSUpdate();
     	tree.backBFS();
+    	queueUpdate();
+    }
+
+    @FXML
+    void btnForwardPressed(ActionEvent event) {
+    	codeBFSUpdate();
+    	tree.forwardBFS();
+    	queueUpdate();
+    }
+    
+    @FXML
+    void btnStopPressed(ActionEvent event) {
+    	tree.getTimeline().stop();
+    	tree.updateState();
+    	boxControl.setVisible(false);
+    	boxNevigate.setVisible(false);
+    	btnStop.setVisible(false);
+    	pseudoCode1.setVisible(false);
+    	pseudoCode2.setVisible(false);
+    	pseudoCode3.setVisible(false);
+    	pseudoCode4.setVisible(false);
+    	bfsPseudoCode.setVisible(false);
+
+    	btnRun.setVisible(true);
     }
 
     @FXML
     void btnDeleteNodePressed(ActionEvent event) {
         if (Node.listValue.indexOf(Integer.parseInt(this.tfDelete.getText())) != -1) {
             deleteNode(Integer.parseInt(this.tfDelete.getText()));
+        } else{
+            JOptionPane.showMessageDialog(null, "Provided node not found!");
         }
     }
 
@@ -111,6 +178,8 @@ public class TreeScreenController {
         Node.listValue.remove(Node.listValue.indexOf(deleteNode.getValue()));
         this.drawingTreePane.getChildren().remove(deleteNode.getParentLine());
         this.drawingTreePane.getChildren().remove(deleteNode);
+        Node parent = deleteNode.getParentNode();
+        parent.getChildNodes().remove(deleteNode);
         for (Node node:deleteNode.getChildNodes()){
             deleteNode(node.getValue());
         }
@@ -118,22 +187,134 @@ public class TreeScreenController {
 
     @FXML
     void buttonUpdate(ActionEvent event) {
-        Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
-        Node newNode = new Node(Integer.parseInt(this.tfUpdateNewValue.getText()));
+        if (!Node.listValue.contains(Integer.parseInt(this.tfUpdateNewValue.getText()))) {
+            Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
+            Node newNode = new Node(Integer.parseInt(this.tfUpdateNewValue.getText()));
 
-        this.drawingTreePane.getChildren().remove(oldNode);
-        newNode.setLayoutX(oldNode.getLayoutX());
-        newNode.setLayoutY(oldNode.getLayoutY());
-        newNode.setChildNodes(oldNode.getChildNodes());
-        this.drawingTreePane.getChildren().add(newNode);
+            this.drawingTreePane.getChildren().remove(oldNode);
+            newNode.setLayoutX(oldNode.getLayoutX());
+            newNode.setLayoutY(oldNode.getLayoutY());
+            this.drawingTreePane.getChildren().add(newNode);
 
+            newNode.setChildNodes(oldNode.getChildNodes());
+            Node parent = oldNode.getParentNode();
+            newNode.setParentNode(parent);
+            parent.getChildNodes().add(newNode);
+            Node.listValue.remove(Integer.parseInt(this.tfUpdateOldValue.getText()));
+        } else {
+            JOptionPane.showMessageDialog(null, "Node not found!");
+        }
     }
 
     @FXML
-    void btnSearchPressed(ActionEvent event) {
-        Node node = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
-        node.getCircle().setFill(Color.LIGHTGREEN);
+    void btnSearchPressed(ActionEvent event) {           // the same as method traversalBFS in GenericTree, only add an extra condition
+	    Node searchedNode = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
+        Timeline timeline = new Timeline();
+        tree.setState(1);
+        KeyFrame popQueue = new KeyFrame(Duration.seconds(1),
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent event) {
+                        if (tree.getState() == 1) {
+                            if (!tree.getQueue().isEmpty()) {
+                                tree.setCurrentNode(tree.getQueue().getFirst());
+                                tree.getQueue().removeFirst();
+                                tree.getTraveledNode().add(tree.getCurrentNode());
+                                tree.getCurrentNode().getCircle().setFill(Color.LIGHTBLUE);
+                                tree.setState(2);
 
-        Timeline timeline  = new Timeline();
+                                if (tree.getCurrentNode() == searchedNode){         //extra condition
+                                    for (int i:Node.listValue){
+                                        Node node = tree.searchNode(i);
+                                        node.getCircle().setFill(Color.WHITE);
+                                    }
+                                    tree.getCurrentNode().getCircle().setFill(Color.GREEN);
+                                    timeline.stop();
+                                }
+
+                            } else {
+                                timeline.stop();
+                            }
+                        }
+                    }
+                } );
+        KeyFrame pushQueue = new KeyFrame(Duration.seconds(2),
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent event) {
+                        if (tree.getState() == 2) {
+                            if (!tree.getCurrentNode().getChildNodes().isEmpty()) {
+                                for (Node node: tree.getCurrentNode().getChildNodes()) {
+                                    tree.getQueue().add(node);
+                                    node.getCircle().setFill(Color.LIGHTYELLOW);
+                                }
+                            }
+                            tree.setState(1);
+                        }
+                    }
+                } );
+
+        tree.setQueue(new LinkedList<Node>());
+        tree.setTraveledNode(new LinkedList<Node>());
+        tree.getQueue().add(tree.getRootNode());
+
+        timeline.getKeyFrames().add(popQueue);
+        timeline.getKeyFrames().add(pushQueue);
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+    void traversalBFS() {
+    	boxControl.setVisible(true);
+    	bfsPseudoCode.setVisible(true);
+    	
+    	KeyFrame step = new KeyFrame(Duration.seconds(1), 
+				new EventHandler<ActionEvent>() {
+			  		public void handle(ActionEvent event) {
+			  			codeBFSUpdate();
+			  			
+			  			tree.forwardBFS();
+			  			queueUpdate();
+			  		}
+			} );
+    	tree.setState(2);
+    	tree.setQueue(new LinkedList<Node>());
+    	tree.setTraveledNode(new LinkedList<Node>());
+    	tree.getQueue().add(tree.getRootNode());
+    	queueUpdate();
+    	
+    	Timeline timeline = new Timeline();
+    	timeline.getKeyFrames().add(step);
+    	timeline.setCycleCount(Timeline.INDEFINITE);
+    	
+    	tree.setTimeline(timeline);
+    	tree.getTimeline().play();
+    }
+    
+    void queueUpdate() {
+    	queueFlowPane.getChildren().clear();
+    	Pane p;
+    	Circle c;
+    	for (Node node: tree.getQueue()) {
+    		p = new Pane();
+    		p.setPrefSize(60, 60);
+    		c = new Circle(30);
+    	    c.setFill(Color.LIGHTYELLOW);
+    	    c.setStroke(Color.BLACK);
+    	    p.getChildren().add(c);
+    	    p.getChildren().add(new Text(node.getValue()+""));
+    		queueFlowPane.getChildren().add(p);
+    	}
+    }
+    void codeBFSUpdate() {
+    	if (tree.getState() == 2) {
+				pseudoCode1.setFill(Color.LIGHTPINK);
+				pseudoCode2.setFill(Color.LIGHTPINK);
+				pseudoCode3.setFill(Color.WHITE);
+				pseudoCode4.setFill(Color.WHITE);
+
+			} else if (tree.getState() == 1) {
+				pseudoCode3.setFill(Color.LIGHTPINK);
+				pseudoCode4.setFill(Color.LIGHTPINK);
+				pseudoCode1.setFill(Color.WHITE);
+				pseudoCode2.setFill(Color.WHITE);
+			}
     }
 }
