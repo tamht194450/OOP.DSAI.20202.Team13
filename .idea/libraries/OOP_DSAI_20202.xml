@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="OOP.DSAI.20202">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/sourcecode" />
+    </SOURCES>
+  </library>
+</component>
