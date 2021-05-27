@@ -26,6 +26,15 @@
                   <Text layoutX="120.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q.enqueue(v)" />
                </children>
             </Pane>
+            <Pane fx:id="dfsPseudoCode" layoutX="700.0" layoutY="342.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="stack.push(root)" />
+                  <Text layoutX="20.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="while stack is not empty:" />
+                  <Text layoutX="70.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="u = stack.pop" />
+                  <Text layoutX="70.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fot child v of u:" />
+                  <Text layoutX="120.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="stack.push(v)" />
+               </children>
+            </Pane>
             <FlowPane fx:id="queueFlowPane" alignment="CENTER_LEFT" layoutX="40.0" layoutY="450.0" maxHeight="65.0" minHeight="65.0" minWidth="450.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="450.0" rowValignment="TOP">
                <opaqueInsets>
                   <Insets />
@@ -196,7 +205,7 @@
                            <children>
                               <VBox prefHeight="200.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" selected="true" text="Breadth First Search">
+                                    <RadioButton mnemonicParsing="false" onAction="#btnChoiceBFSPressed" selected="true" text="Breadth First Search">
                                        <VBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </VBox.margin>
@@ -204,7 +213,7 @@
                                           <ToggleGroup fx:id="toggleTraversal" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="Depth First Search" toggleGroup="$toggleTraversal">
+                                    <RadioButton mnemonicParsing="false" onAction="#btnChoiceDFSPressed" text="Depth First Search" toggleGroup="$toggleTraversal">
                                        <VBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </VBox.margin>

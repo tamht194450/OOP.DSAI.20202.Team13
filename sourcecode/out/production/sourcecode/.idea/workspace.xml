@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/treeDataStructure/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/Node.java" afterDir="false" />
+>>>>>>> main
       <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,13 +59,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,8 +88,13 @@
       <updated>1621955232187</updated>
       <workItem from="1621955233385" duration="6492000" />
       <workItem from="1622034580081" duration="4737000" />
+<<<<<<< HEAD
       <workItem from="1622039849850" duration="2170000" />
       <workItem from="1622043857862" duration="2104000" />
+=======
+      <workItem from="1622039849850" duration="1638000" />
+      <workItem from="1622121866533" duration="621000" />
+>>>>>>> main
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1622041961254</created>

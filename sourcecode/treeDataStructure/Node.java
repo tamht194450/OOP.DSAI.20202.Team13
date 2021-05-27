@@ -31,7 +31,9 @@ public class Node extends StackPane{
 	
 	public Node(int value) {
 		this.value = value;
-		listValue.add(this.value);
+		if (value != 0) {
+			listValue.add(this.value);
+		}
 		this.setPrefSize(60, 60);
 		this.parentLine = new Line();
 		
@@ -135,6 +137,8 @@ public class Node extends StackPane{
 		}
 	}
 
-
+	public void setValue(int value) {
+		this.value = value;
+	}
 }
 
