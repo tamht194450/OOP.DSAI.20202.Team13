@@ -7,6 +7,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -32,6 +33,7 @@ public class TreeScreenController {
 	private GenericTree tree;
 	private TreeScreen treeScreen;
     private StackPane rootNode;
+    private String choiceTraversal = new String("BFS");
 
     @FXML
     private TextField tfDelete;
@@ -68,6 +70,9 @@ public class TreeScreenController {
     
     @FXML
     private Pane bfsPseudoCode;
+
+    @FXML
+    private Pane dfsPseudoCode;
     
     @FXML
     private Rectangle pseudoCode1;
@@ -122,7 +127,15 @@ public class TreeScreenController {
     	pseudoCode2.setVisible(true);
     	pseudoCode3.setVisible(true);
     	pseudoCode4.setVisible(true);
-    	traversalBFS();
+		boxControl.setVisible(true);
+		queueFlowPane.setVisible(true);
+    	if (this.choiceTraversal.equals("BFS")) {
+        	bfsPseudoCode.setVisible(true);
+	    	traversalBFS();
+    	} else if (choiceTraversal.equals("DFS")) {
+    		dfsPseudoCode.setVisible(true);
+    		traversalDFS();
+    	}
     }
     @FXML
     void btnPausePressed(ActionEvent event) {
@@ -136,22 +149,35 @@ public class TreeScreenController {
     }
     @FXML
     void btnBackPressed(ActionEvent event) {
-    	codeBFSUpdate();
-    	tree.backBFS();
-    	queueUpdate();
+    	if (this.choiceTraversal.equals("BFS")) {
+	    	codeUpdate();
+	    	tree.backBFS();
+	    	queueUpdate();
+    	} else if (this.choiceTraversal.equals("DFS")) {
+    		codeUpdate();
+    		tree.backDFS();
+    		queueUpdate();
+    	}
     }
 
     @FXML
     void btnForwardPressed(ActionEvent event) {
-    	codeBFSUpdate();
-    	tree.forwardBFS();
-    	queueUpdate();
+    	if (this.choiceTraversal.equals("BFS")) {
+	    	codeUpdate();
+	    	tree.forwardBFS();
+	    	queueUpdate();
+    	} else if (this.choiceTraversal.equals("DFS")) {
+    		codeUpdate();
+    		tree.forwardDFS();
+    		queueUpdate();
+    	}
     }
     
     @FXML
     void btnStopPressed(ActionEvent event) {
     	tree.getTimeline().stop();
     	tree.updateState();
+    	
     	boxControl.setVisible(false);
     	boxNevigate.setVisible(false);
     	btnStop.setVisible(false);
@@ -160,8 +186,20 @@ public class TreeScreenController {
     	pseudoCode3.setVisible(false);
     	pseudoCode4.setVisible(false);
     	bfsPseudoCode.setVisible(false);
-
+    	dfsPseudoCode.setVisible(false);
+    	queueFlowPane.setVisible(false);
     	btnRun.setVisible(true);
+    }
+    @FXML
+    void btnChoiceBFSPressed(ActionEvent event) {
+    	this.choiceTraversal = new String("BFS");
+    	queueFlowPane.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+    }
+
+    @FXML
+    void btnChoiceDFSPressed(ActionEvent event) {
+    	this.choiceTraversal = new String("DFS");
+    	queueFlowPane.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
     }
 
     @FXML
@@ -262,14 +300,10 @@ public class TreeScreenController {
         timeline.play();
     }
     void traversalBFS() {
-    	boxControl.setVisible(true);
-    	bfsPseudoCode.setVisible(true);
-    	
     	KeyFrame step = new KeyFrame(Duration.seconds(1), 
 				new EventHandler<ActionEvent>() {
 			  		public void handle(ActionEvent event) {
-			  			codeBFSUpdate();
-			  			
+			  			codeUpdate();
 			  			tree.forwardBFS();
 			  			queueUpdate();
 			  		}
@@ -287,9 +321,31 @@ public class TreeScreenController {
     	tree.setTimeline(timeline);
     	tree.getTimeline().play();
     }
+    void traversalDFS() {
+    	KeyFrame step = new KeyFrame(Duration.seconds(1), 
+				new EventHandler<ActionEvent>() {
+			  		public void handle(ActionEvent event) {
+			  			codeUpdate();
+			  			tree.forwardDFS();
+			  			queueUpdate();
+			  		}
+			} );
+    	tree.setState(2);
+    	tree.setQueue(new LinkedList<Node>());
+    	tree.setTraveledNode(new LinkedList<Node>());
+    	tree.getQueue().add(tree.getRootNode());
+    	
+    	Timeline timeline = new Timeline();
+    	timeline.getKeyFrames().add(step);
+    	timeline.setCycleCount(Timeline.INDEFINITE);
+    	
+    	tree.setTimeline(timeline);
+    	tree.getTimeline().play();
+    }
     
     void queueUpdate() {
     	queueFlowPane.getChildren().clear();
+    	
     	Pane p;
     	Circle c;
     	for (Node node: tree.getQueue()) {
@@ -303,7 +359,7 @@ public class TreeScreenController {
     		queueFlowPane.getChildren().add(p);
     	}
     }
-    void codeBFSUpdate() {
+    void codeUpdate() {
     	if (tree.getState() == 2) {
 				pseudoCode1.setFill(Color.LIGHTPINK);
 				pseudoCode2.setFill(Color.LIGHTPINK);
