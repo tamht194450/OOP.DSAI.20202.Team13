@@ -100,6 +100,52 @@ public class GenericTree {
 			state = 2;
 		}
 	}
+	
+	public void backDFS() {
+		if (state == 2) {
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					queue.removeLast();
+					node.setState(0);
+				}
+			}
+			timeline.setCycleCount(timeline.getCycleCount()+1);
+			state = 1;
+		} else if (state == 1) {
+			queue.add(currentNode);
+			currentNode.setState(1);
+			traveledNode.removeLast();
+			currentNode = traveledNode.getLast();
+			state = 2;
+		}
+	
+	}
+	
+	public void forwardDFS() {
+		if (state == 2) {
+			if (!queue.isEmpty()) {
+  				currentNode = queue.getLast();
+  				queue.removeLast();
+  				traveledNode.add(currentNode);
+  				currentNode.setState(state);
+  				state = 1;
+			} else {
+				timeline.pause();
+			}
+		} else if (state == 1) {
+			if (!currentNode.getChildNodes().isEmpty()) {
+				LinkedList<Node> childReverse = new LinkedList<Node>();
+				for (Node node: currentNode.getChildNodes()) {
+					childReverse.addFirst(node);
+				}
+				for (Node node: childReverse) {
+					queue.add(node);
+					node.setState(state);
+				}
+			}
+			state = 2;
+		}
+	}
 
 	public void updateState() {
 		LinkedList<Node> queue = new LinkedList<Node>();
