@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../OOP.DSAI.20202.Team13.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeDataStructure/GenericTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/GenericTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeDataStructure/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/Tree.fxml" afterDir="false" />
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.115555584" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -93,7 +82,17 @@
       <updated>1621955232187</updated>
       <workItem from="1621955233385" duration="6492000" />
       <workItem from="1622034580081" duration="4737000" />
+      <workItem from="1622039849850" duration="2170000" />
+      <workItem from="1622043857862" duration="2104000" />
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <created>1622041961254</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622041961254</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,5 +109,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>

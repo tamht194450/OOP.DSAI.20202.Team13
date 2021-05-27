@@ -9,7 +9,6 @@ public class Test {
         Node n1 = new Node(1);
         GenericTree tree = new GenericTree(n1);
 
-
         TreeScreen treeScreen = new TreeScreen(tree);
     }
 }

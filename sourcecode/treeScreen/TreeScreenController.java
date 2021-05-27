@@ -196,21 +196,33 @@ public class TreeScreenController {
             newNode.setLayoutY(oldNode.getLayoutY());
             this.drawingTreePane.getChildren().add(newNode);
 
-            newNode.setChildNodes(oldNode.getChildNodes());
             Node parent = oldNode.getParentNode();
+
+            newNode.setChildNodes(oldNode.getChildNodes());
             newNode.setParentNode(parent);
-            parent.getChildNodes().add(newNode);
-            Node.listValue.remove(Integer.parseInt(this.tfUpdateOldValue.getText()));
+
+            int index = parent.getChildNodes().indexOf(oldNode);
+            parent.getChildNodes().set(index, newNode);
+
+            int valueIndex = Node.listValue.indexOf(Integer.parseInt(this.tfUpdateOldValue.getText()));
+            Node.listValue.remove(valueIndex);
         } else {
             JOptionPane.showMessageDialog(null, "Node not found!");
         }
     }
 
     @FXML
-    void btnSearchPressed(ActionEvent event) {           // the same as method traversalBFS in GenericTree, only add an extra condition
+    void btnSearchPressed(ActionEvent event) {  // the same as method traversalBFS in GenericTree, only add an extra condition
+        System.out.println(Node.listValue);
+        for (int i:Node.listValue){
+            Node node = tree.searchNode(i);
+            node.getCircle().setFill(Color.WHITE);
+        }
+
 	    Node searchedNode = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
         Timeline timeline = new Timeline();
         tree.setState(1);
+
         KeyFrame popQueue = new KeyFrame(Duration.seconds(1),
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent event) {
@@ -255,7 +267,6 @@ public class TreeScreenController {
         tree.setQueue(new LinkedList<Node>());
         tree.setTraveledNode(new LinkedList<Node>());
         tree.getQueue().add(tree.getRootNode());
-
         timeline.getKeyFrames().add(popQueue);
         timeline.getKeyFrames().add(pushQueue);
         timeline.setCycleCount(Timeline.INDEFINITE);

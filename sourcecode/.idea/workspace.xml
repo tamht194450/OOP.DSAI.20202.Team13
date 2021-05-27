@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeDataStructure/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +24,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1t27GEvPSolYzn0AnYr86lN8AvT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -92,8 +95,18 @@
       <updated>1621955232187</updated>
       <workItem from="1621955233385" duration="6492000" />
       <workItem from="1622034580081" duration="4737000" />
-      <workItem from="1622039849850" duration="1638000" />
+      <workItem from="1622039849850" duration="2170000" />
+      <workItem from="1622043857862" duration="2104000" />
+      <workItem from="1622108827459" duration="2442000" />
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <created>1622041961254</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622041961254</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,5 +123,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>
