@@ -34,6 +34,7 @@ public class TreeScreenController {
 	private TreeScreen treeScreen;
     private StackPane rootNode;
     private String choiceTraversal = new String("BFS");
+    private int historyInsert;
 
     @FXML
     private TextField tfDelete;
@@ -91,7 +92,10 @@ public class TreeScreenController {
     
     @FXML
     private Button btnStop;
-
+ 
+    @FXML
+    private Button btnUndoInsert;
+    
     @FXML
     private FlowPane queueFlowPane;
 
@@ -108,10 +112,11 @@ public class TreeScreenController {
 	
     @FXML
     void btnAddNodePressed(ActionEvent event) {
+    	btnUndoInsert.setVisible(true);
         if (!Node.listValue.contains(Integer.parseInt(this.tfChild.getText()))) {
             Node childNode = new Node(Integer.parseInt(this.tfChild.getText()));
             tree.insertNode(Integer.parseInt(tfParent.getText()), childNode);
-
+            historyInsert = childNode.getValue();
             this.drawingTreePane.getChildren().add(childNode);
             this.drawingTreePane.getChildren().add(childNode.getParentLine());
         } else {
@@ -201,6 +206,19 @@ public class TreeScreenController {
     	this.choiceTraversal = new String("DFS");
     	queueFlowPane.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
     }
+    @FXML
+    void btnInsertUndoPressed(ActionEvent event) {
+    	Node node = tree.searchNode(historyInsert);
+    	drawingTreePane.getChildren().remove(node.getParentLine());
+    	drawingTreePane.getChildren().remove(node);
+    	tree.deleteNode(historyInsert);
+    	btnUndoInsert.setVisible(false);
+    }
+    @FXML
+    void btnRedoPressed(ActionEvent event) {
+
+    }
+
 
     @FXML
     void btnDeleteNodePressed(ActionEvent event) {
