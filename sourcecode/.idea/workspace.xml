@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
-    </list>
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +89,7 @@
       <workItem from="1622034580081" duration="4737000" />
       <workItem from="1622039849850" duration="2170000" />
       <workItem from="1622043857862" duration="2104000" />
-      <workItem from="1622108827459" duration="2442000" />
+      <workItem from="1622108827459" duration="2791000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1622041961254</created>
@@ -106,7 +98,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622041961254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add">
+      <created>1622111613134</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622111613134</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add">
+      <created>1622111617198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622111617198</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
