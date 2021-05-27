@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
+      <change afterPath="$PROJECT_DIR$/test/TestMainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" afterDir="false" />
@@ -30,6 +29,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/test/Test.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/treeDataStructure/Node.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/treeScreen/TreeScreenController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/treeDataStructure/GenericTree.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/treeScreen/Tree.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/treeScreen/TreeScreen.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1t27GEvPSolYzn0AnYr86lN8AvT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -41,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OOP.DSAI.20202.Team13/sourcecode" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.115555584" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -51,7 +58,7 @@
       <recent name="$PROJECT_DIR$/treeScreen" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.Test" />
       <module name="sourcecode" />
@@ -65,20 +72,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration name="TestMainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.TestMainMenu" />
+      <module name="sourcecode" />
+      <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.TestMainMenu" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.TestMainMenu" />
       </list>
     </recent_temporary>
   </component>
@@ -93,6 +121,7 @@
       <workItem from="1621955233385" duration="6492000" />
       <workItem from="1622034580081" duration="4737000" />
       <workItem from="1622039849850" duration="1638000" />
+      <workItem from="1622121866533" duration="6652000" />
     </task>
     <servers />
   </component>

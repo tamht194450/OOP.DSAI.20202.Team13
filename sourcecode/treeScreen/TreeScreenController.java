@@ -204,8 +204,14 @@ public class TreeScreenController {
 
     @FXML
     void btnDeleteNodePressed(ActionEvent event) {
-        if (Node.listValue.indexOf(Integer.parseInt(this.tfDelete.getText())) != -1) {
-            deleteNode(Integer.parseInt(this.tfDelete.getText()));
+        Node deleteNode = tree.searchNode(Integer.parseInt(this.tfDelete.getText()));
+
+        if (deleteNode.getValue() != 0) {
+            Node parent = deleteNode.getParentNode();
+            parent.getChildNodes().remove(deleteNode);
+            for (Node node:deleteNode.getChildNodes()){
+                deleteNode(node.getValue());
+            }
         } else{
             JOptionPane.showMessageDialog(null, "Provided node not found!");
         }
@@ -213,11 +219,7 @@ public class TreeScreenController {
 
     public void deleteNode(int deletedValue) {
         Node deleteNode = tree.searchNode(deletedValue);
-        Node.listValue.remove(Node.listValue.indexOf(deleteNode.getValue()));
-        this.drawingTreePane.getChildren().remove(deleteNode.getParentLine());
         this.drawingTreePane.getChildren().remove(deleteNode);
-        Node parent = deleteNode.getParentNode();
-        parent.getChildNodes().remove(deleteNode);
         for (Node node:deleteNode.getChildNodes()){
             deleteNode(node.getValue());
         }
@@ -234,11 +236,16 @@ public class TreeScreenController {
             newNode.setLayoutY(oldNode.getLayoutY());
             this.drawingTreePane.getChildren().add(newNode);
 
-            newNode.setChildNodes(oldNode.getChildNodes());
             Node parent = oldNode.getParentNode();
+
+            newNode.setChildNodes(oldNode.getChildNodes());
             newNode.setParentNode(parent);
-            parent.getChildNodes().add(newNode);
-            Node.listValue.remove(Integer.parseInt(this.tfUpdateOldValue.getText()));
+
+            int index = parent.getChildNodes().indexOf(oldNode);
+            parent.getChildNodes().set(index, newNode);
+
+            int valueIndex = Node.listValue.indexOf(Integer.parseInt(this.tfUpdateOldValue.getText()));
+            Node.listValue.remove(valueIndex);
         } else {
             JOptionPane.showMessageDialog(null, "Node not found!");
         }
