@@ -52,7 +52,7 @@
                         <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Redo">
+                  <Button mnemonicParsing="false" onAction="#btnRedoPressed" text="Redo">
                      <HBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </HBox.margin>

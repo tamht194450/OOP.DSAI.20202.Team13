@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/Tree.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,5 +129,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/treeScreen/TreeScreenController.java</url>
+          <line>218</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
