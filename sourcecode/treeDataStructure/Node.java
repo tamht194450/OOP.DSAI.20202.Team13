@@ -11,7 +11,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 public class Node extends StackPane{
-	public static LinkedList<Integer> listValue = new LinkedList<>();
+	public static LinkedList<Integer> listValue = new LinkedList<Integer>();
 	private int value;
 	private LinkedList<Node> childNodes = new LinkedList<Node>();
 	private Node parentNode;
@@ -31,7 +31,9 @@ public class Node extends StackPane{
 	
 	public Node(int value) {
 		this.value = value;
-		listValue.add(this.value);
+		if (value != 0) {
+			listValue.add(this.value);
+		}
 		this.setPrefSize(60, 60);
 		this.parentLine = new Line();
 		
@@ -62,6 +64,15 @@ public class Node extends StackPane{
 		childNode.setParentNode(this);
 		childNode.setDepth(this.getDepth()+1);
 	}
+	public void deleteChild(int nodeValue) {
+        Node.listValue.remove(Node.listValue.indexOf(nodeValue));
+
+		for (Node node: this.childNodes) {
+			if (node.getValue() == nodeValue) {
+				this.childNodes.remove(node);
+			}
+		}
+	}
 	
 	public void addUpdate() {
 		LinkedList<Node> queue = new LinkedList<Node>();
@@ -74,6 +85,25 @@ public class Node extends StackPane{
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
 					node.setLayoutX(node.getLayoutX()-40);
+					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
+					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
+					queue.add(node);
+				}
+			}
+			queue.removeFirst();
+		}
+	}
+	public void deleteUpdate() {
+		LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(this);
+		Node currentNode;
+		
+		while(!queue.isEmpty()) {
+			currentNode = queue.getFirst();
+			
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+					node.setLayoutX(node.getLayoutX()+40);
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);
@@ -135,6 +165,8 @@ public class Node extends StackPane{
 		}
 	}
 
-
+	public void setValue(int value) {
+		this.value = value;
+	}
 }
 

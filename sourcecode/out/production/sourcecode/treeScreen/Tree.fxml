@@ -26,6 +26,15 @@
                   <Text layoutX="120.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q.enqueue(v)" />
                </children>
             </Pane>
+            <Pane fx:id="dfsPseudoCode" layoutX="700.0" layoutY="342.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="stack.push(root)" />
+                  <Text layoutX="20.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="while stack is not empty:" />
+                  <Text layoutX="70.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="u = stack.pop" />
+                  <Text layoutX="70.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fot child v of u:" />
+                  <Text layoutX="120.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="stack.push(v)" />
+               </children>
+            </Pane>
             <FlowPane fx:id="queueFlowPane" alignment="CENTER_LEFT" layoutX="40.0" layoutY="450.0" maxHeight="65.0" minHeight="65.0" minWidth="450.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="65.0" prefWidth="450.0" rowValignment="TOP">
                <opaqueInsets>
                   <Insets />
@@ -34,13 +43,22 @@
          </children></Pane>
    </center>
    <top>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="genericTreeScreen" prefHeight="200.0" prefWidth="100.0" visible="false" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Back to Main Menu">
-               <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
+            <HBox prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#buttonBackToMainMenuPressed" text="Back to Main Menu">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#btnRedoPressed" text="Redo">
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Insert Node">
@@ -51,7 +69,7 @@
                                  <children>
                                     <Label text="Parent Node">
                                        <HBox.margin>
-                                          <Insets left="10.0" top="10.0" />
+                                          <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                        <font>
                                           <Font size="20.0" />
@@ -59,7 +77,7 @@
                                     </Label>
                                     <TextField fx:id="tfParent" prefWidth="50.0">
                                        <HBox.margin>
-                                          <Insets left="10.0" top="10.0" />
+                                          <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                     </TextField>
                                  </children>
@@ -71,21 +89,33 @@
                                           <Font size="20.0" />
                                        </font>
                                        <HBox.margin>
-                                          <Insets left="10.0" top="10.0" />
+                                          <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                     </Label>
                                     <TextField fx:id="tfChild" prefWidth="50.0">
                                        <HBox.margin>
-                                          <Insets left="10.0" top="10.0" />
+                                          <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                     </TextField>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" onAction="#btnAddNodePressed" text="Add Node">
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="btnUndoInsert" mnemonicParsing="false" onAction="#btnAddNodePressed" text="Add Node">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnUndoInsert" mnemonicParsing="false" onAction="#btnInsertUndoPressed" text="Undo" visible="false">
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" />
+                                    <Insets />
                                  </VBox.margin>
-                              </Button>
+                              </HBox>
                            </children>
                         </VBox>
                      </content>
@@ -196,7 +226,7 @@
                            <children>
                               <VBox prefHeight="200.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" selected="true" text="Breadth First Search">
+                                    <RadioButton mnemonicParsing="false" onAction="#btnChoiceBFSPressed" selected="true" text="Breadth First Search">
                                        <VBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </VBox.margin>
@@ -204,7 +234,7 @@
                                           <ToggleGroup fx:id="toggleTraversal" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="Depth First Search" toggleGroup="$toggleTraversal">
+                                    <RadioButton mnemonicParsing="false" onAction="#btnChoiceDFSPressed" text="Depth First Search" toggleGroup="$toggleTraversal">
                                        <VBox.margin>
                                           <Insets left="10.0" top="10.0" />
                                        </VBox.margin>
@@ -271,4 +301,36 @@
          </children>
       </VBox>
    </top>
+   <left>
+      <VBox fx:id="mainMenu" prefHeight="565.0" prefWidth="159.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#buttonGenericTreePressed" prefHeight="25.0" prefWidth="134.0" text="Generic Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#buttonBinaryTreePressed" text="Binary Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#buttonBalancedTreePressed" text="Balanced Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <TextField fx:id="tfKBalancedTree" maxWidth="50.0" prefHeight="25.0" prefWidth="125.0" />
+            <Button mnemonicParsing="false" onAction="#buttonBalancedBinaryTreePressed" prefHeight="25.0" prefWidth="204.0" text="Balanced Binary Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <TextField fx:id="tfKBalancedBinaryTree" maxWidth="50.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+   </left>
 </BorderPane>
