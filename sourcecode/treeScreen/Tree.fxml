@@ -47,7 +47,7 @@
          <children>
             <HBox prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" text="Back to Main Menu">
+                  <Button mnemonicParsing="false" onAction="#btnBackMainMenuPressed" text="Back to Main Menu">
                      <HBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </HBox.margin>

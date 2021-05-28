@@ -218,6 +218,12 @@ public class TreeScreenController {
     void btnRedoPressed(ActionEvent event) {
 
     }
+    @FXML
+    void btnBackMainMenuPressed(ActionEvent event) {
+    	Node.listValue = new LinkedList<Integer>();
+    	this.treeScreen.getMainMenu().setVisible(true);
+    	this.treeScreen.setVisible(false);
+    }
 
 
     @FXML
@@ -391,4 +397,10 @@ public class TreeScreenController {
 				pseudoCode2.setFill(Color.WHITE);
 			}
     }
+	public void setTree(GenericTree tree) {
+		this.tree = tree;
+	}
+	public void setTreeScreen(TreeScreen treeScreen) {
+		this.treeScreen = treeScreen;
+	}
 }

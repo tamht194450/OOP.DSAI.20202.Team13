@@ -1,4 +1,4 @@
-package treeScreen;
+package treeScreen.MainMenu;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -13,21 +13,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import treeDataStructure.GenericTree;
-import treeScreen.MainMenu.MainMenuScreen;
+import treeScreen.TreeScreen;
+import treeScreen.TreeScreenController;
 
-public class TreeScreen extends JFrame{
-	private MainMenuScreen mainMenu;
-	private TreeScreenController treeController;
+public class MainMenuScreen extends JFrame{
+	private TreeScreen treeScreen;
 	
-	public TreeScreen(GenericTree tree) {
+	public MainMenuScreen() {
 		super();
 		JFXPanel fxPanel = new JFXPanel();
 		this.add(fxPanel);
 		
-		this.setSize(1024, 768);
-		this.setTitle("Tree");
-		this.setVisible(false);
-		this.addWindowListener(new WindowAdapter() {
+		this.setSize(600, 400);
+		this.setTitle("Main Menu");
+		this.setVisible(true);
+	    this.addWindowListener(new WindowAdapter() {
 	        public void windowClosing(WindowEvent we) {
 	          int result = JOptionPane.showConfirmDialog(null,
 	              "Do you want to Exit ?", "Exit Confirmation : ",
@@ -38,9 +38,8 @@ public class TreeScreen extends JFrame{
 	            setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	        }
 	      });
-
-		treeController = new TreeScreenController(tree);
-		treeController.setTreeScreen(this);
+		MainMenuController controller = new MainMenuController();
+		controller.setMainMenuScreen(this);
 		
 		Platform.runLater(new Runnable() {
 			@Override
@@ -48,8 +47,8 @@ public class TreeScreen extends JFrame{
 				// TODO Auto-generated method stub
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass()
-							.getResource("Tree.fxml"));
-					loader.setController(treeController);
+							.getResource("/treeScreen/MainMenu/MainMenu.fxml"));
+					loader.setController(controller);
 					Parent root = loader.load();
 					fxPanel.setScene(new Scene(root));
 				} catch (IOException e) {
@@ -60,16 +59,11 @@ public class TreeScreen extends JFrame{
 		});
 	}
 
-	public void setMainMenu(MainMenuScreen mainMenu) {
-		this.mainMenu = mainMenu;
+	public void setTreeScreen(TreeScreen treeScreen) {
+		this.treeScreen = treeScreen;
 	}
 
-	public TreeScreenController getTreeController() {
-		return treeController;
+	public TreeScreen getTreeScreen() {
+		return treeScreen;
 	}
-
-	public MainMenuScreen getMainMenu() {
-		return mainMenu;
-	}
-	
 }
