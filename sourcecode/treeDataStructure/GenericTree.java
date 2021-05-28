@@ -22,7 +22,11 @@ public class GenericTree {
 		this.rootNode = node;
 		this.numberOfNodes = 1;
 	}
-	
+
+	public GenericTree() {
+
+	}
+
 	public Node searchNode(int nodeValue) {
 		if (rootNode.getValue() == nodeValue) {
 			return rootNode;

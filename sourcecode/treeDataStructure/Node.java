@@ -20,6 +20,8 @@ public class Node extends StackPane{
 	private Line parentLine;
 	private int depth = 1;
 	private int state = 1;
+	Node left;
+	Node right;
 
 	public int getDepth() {
 		return depth;
