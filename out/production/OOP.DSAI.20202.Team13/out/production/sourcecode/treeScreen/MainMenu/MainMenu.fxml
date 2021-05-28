@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectOOP.treeScreen.MainMenu.MainMenuController">
+   <children>
+      <VBox layoutX="116.0" layoutY="78.0" prefHeight="200.0" prefWidth="222.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#buttonGenericTreePressed" prefHeight="25.0" prefWidth="134.0" text="Generic Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#buttonBinaryTreePressed" text="Binary Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#buttonBalancedTreePressed" text="Balanced Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Button>
+            <TextField fx:id="tfKBalancedTree" maxWidth="50.0" prefHeight="25.0" prefWidth="125.0" />
+            <Button mnemonicParsing="false" onAction="#buttonBalancedBinaryTreePressed" prefHeight="25.0" prefWidth="204.0" text="Balanced Binary Tree">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Button>
+            <TextField fx:id="tfKBalancedBinaryTree" maxWidth="50.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
