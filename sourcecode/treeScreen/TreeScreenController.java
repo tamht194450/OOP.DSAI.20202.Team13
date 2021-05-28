@@ -11,18 +11,14 @@ import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import test.Test;
 import treeDataStructure.GenericTree;
 import treeDataStructure.Node;
 
@@ -35,6 +31,9 @@ public class TreeScreenController {
     private StackPane rootNode;
     private String choiceTraversal = new String("BFS");
     private int historyInsert;
+
+    @FXML
+    private VBox genericTreeScreen;
 
     @FXML
     private TextField tfDelete;
@@ -99,7 +98,19 @@ public class TreeScreenController {
     @FXML
     private FlowPane queueFlowPane;
 
-	public TreeScreenController(GenericTree tree) {
+// Main Menu
+
+    @FXML
+    private VBox mainMenu;
+
+    @FXML
+    private TextField tfKBalancedTree;
+
+    @FXML
+    private TextField tfKBalancedBinaryTree;
+
+
+    public TreeScreenController(GenericTree tree) {
 		super();
 		this.tree = tree;
 		
@@ -108,6 +119,7 @@ public class TreeScreenController {
 		this.rootNode = this.tree.getRootNode();
 		this.drawingTreePane.getChildren().add(this.rootNode);
 		this.rootNode.setLayoutX(this.drawingTreePane.getPrefWidth()/2);
+
 	}
 	
     @FXML
@@ -421,5 +433,36 @@ public class TreeScreenController {
 				pseudoCode1.setFill(Color.WHITE);
 				pseudoCode2.setFill(Color.WHITE);
 			}
+    }
+
+
+    //Main Menu
+
+
+    @FXML
+    void buttonGenericTreePressed(ActionEvent event) {
+        this.mainMenu.setVisible(false);
+        this.genericTreeScreen.setVisible(true);
+    }
+
+    @FXML
+    void buttonBinaryTreePressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonBalancedTreePressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonBalancedBinaryTreePressed(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonBackToMainMenuPressed(ActionEvent event){
+        this.mainMenu.setVisible(true);
+        this.genericTreeScreen.setVisible(false);
     }
 }
