@@ -216,30 +216,48 @@ public class TreeScreenController {
     }
     @FXML
     void btnRedoPressed(ActionEvent event) {
-
+	    Node rootNode = tree.getRootNode();
+        for (Node node:rootNode.getChildNodes()){
+            deleteNodeInTree(node.getValue());
+        }
     }
 
 
     @FXML
     void btnDeleteNodePressed(ActionEvent event) {
-        Node deleteNode = tree.searchNode(Integer.parseInt(this.tfDelete.getText()));
-
-        if (deleteNode.getValue() != 0) {
-            Node parent = deleteNode.getParentNode();
-            parent.getChildNodes().remove(deleteNode);
-            for (Node node:deleteNode.getChildNodes()){
-                deleteNode(node.getValue());
-            }
-        } else{
+        if (Node.listValue.contains(Integer.parseInt(this.tfDelete.getText()))) {
+            deleteNodeInTree(Integer.parseInt(this.tfDelete.getText()));
+        }else{
             JOptionPane.showMessageDialog(null, "Provided node not found!");
         }
     }
 
-    public void deleteNode(int deletedValue) {
-        Node deleteNode = tree.searchNode(deletedValue);
-        this.drawingTreePane.getChildren().remove(deleteNode);
-        for (Node node:deleteNode.getChildNodes()){
-            deleteNode(node.getValue());
+    public void deleteNodeInTree(int deletedValue) {
+	    LinkedList<Node> queue = new LinkedList<>();
+	    Node deleteNode = tree.searchNode(deletedValue);
+	    queue.add(deleteNode);
+	    Node currentNode;
+
+        while (true){
+            if (!queue.isEmpty()){
+                currentNode = queue.getFirst();
+                queue.removeFirst();
+
+                this.drawingTreePane.getChildren().remove(currentNode);
+                this.drawingTreePane.getChildren().remove(currentNode.getParentLine());
+                if (Node.listValue.contains(currentNode.getValue())) {
+                    int index = Node.listValue.indexOf(currentNode.getValue());
+                    Node.listValue.remove(index);
+                }
+
+                if (!currentNode.getChildNodes().isEmpty()){
+                    for (Node node:currentNode.getChildNodes()){
+                        queue.add(node);
+                    }
+                }
+            }else {
+                break;
+            }
         }
     }
 
