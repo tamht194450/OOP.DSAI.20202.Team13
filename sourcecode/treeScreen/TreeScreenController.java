@@ -98,17 +98,6 @@ public class TreeScreenController {
     @FXML
     private FlowPane queueFlowPane;
 
-// Main Menu
-
-    @FXML
-    private VBox mainMenu;
-
-    @FXML
-    private TextField tfKBalancedTree;
-
-    @FXML
-    private TextField tfKBalancedBinaryTree;
-
 
     public TreeScreenController(GenericTree tree) {
 		super();
@@ -232,6 +221,12 @@ public class TreeScreenController {
         for (Node node:rootNode.getChildNodes()){
             deleteNodeInTree(node.getValue());
         }
+    }
+    @FXML
+    void btnBackMainMenuPressed(ActionEvent event) {
+    	Node.listValue = new LinkedList<Integer>();
+    	this.treeScreen.getMainMenu().setVisible(true);
+    	this.treeScreen.setVisible(false);
     }
 
 
@@ -435,34 +430,10 @@ public class TreeScreenController {
 			}
     }
 
-
-    //Main Menu
-
-
-    @FXML
-    void buttonGenericTreePressed(ActionEvent event) {
-        this.mainMenu.setVisible(false);
-        this.genericTreeScreen.setVisible(true);
-    }
-
-    @FXML
-    void buttonBinaryTreePressed(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonBalancedTreePressed(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonBalancedBinaryTreePressed(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buttonBackToMainMenuPressed(ActionEvent event){
-        this.mainMenu.setVisible(true);
-        this.genericTreeScreen.setVisible(false);
-    }
+	public void setTree(GenericTree tree) {
+		this.tree = tree;
+	}
+	public void setTreeScreen(TreeScreen treeScreen) {
+		this.treeScreen = treeScreen;
+	}
 }
