@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/test/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/test/TestMainMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/MainMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/MainMenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/TestMainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/TestMainMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeDataStructure/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeScreen/MainMenu/TestMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/MainMenu/TestMainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/Tree.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +50,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.115555584" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -131,6 +140,10 @@
       <workItem from="1622043857862" duration="2104000" />
       <workItem from="1622039849850" duration="1638000" />
       <workItem from="1622121866533" duration="621000" />
+      <workItem from="1622272626243" duration="1276000" />
+      <workItem from="1622283096388" duration="1650000" />
+      <workItem from="1622290007814" duration="1154000" />
+      <workItem from="1622292856316" duration="2493000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1622041961254</created>
@@ -139,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1622041961254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add">
+      <created>1622214035754</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622214035754</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add">
+      <created>1622214169967</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622214169967</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
