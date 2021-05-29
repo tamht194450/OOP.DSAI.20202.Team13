@@ -18,7 +18,7 @@ public class Node extends StackPane{
 	private Circle circle;
 	private Text nodeValue;
 	private Line parentLine;
-	private int depth = 1;
+	private int depth = 0;
 	private int state = 1;
 	Node left;
 	Node right;
@@ -49,10 +49,16 @@ public class Node extends StackPane{
 	
 	public void addChild(Node childNode) {
 		this.addUpdate();
+		childNode.setDepth(this.getDepth()+1);
+
 		
-		childNode.setLayoutY(this.getLayoutY()+80);
+		childNode.setLayoutY(this.getLayoutY()+100);
 		if (this.childNodes.isEmpty()) {
 			childNode.setLayoutX(this.getLayoutX());
+		} else if (childNode.getDepth() == 1){
+			childNode.setLayoutX(this.childNodes.getLast().getLayoutX()+500);
+		} else if (childNode.getDepth() == 2){
+			childNode.setLayoutX(this.childNodes.getLast().getLayoutX()+220);
 		} else {
 			childNode.setLayoutX(this.childNodes.getLast().getLayoutX()+80);
 		}
@@ -60,11 +66,10 @@ public class Node extends StackPane{
 		line.setLayoutX(this.getLayoutX()+30);
 		line.setLayoutY(this.getLayoutY()+60);
 		line.setEndX(childNode.getLayoutX()-this.getLayoutX());
-		line.setEndY(20);
+		line.setEndY(40);
 		
 		this.childNodes.add(childNode);
 		childNode.setParentNode(this);
-		childNode.setDepth(this.getDepth()+1);
 	}
 	public void deleteChild(int nodeValue) {
         Node.listValue.remove(Node.listValue.indexOf(nodeValue));
@@ -86,7 +91,13 @@ public class Node extends StackPane{
 			
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
-					node.setLayoutX(node.getLayoutX()-40);
+					if (node.getDepth() == 1) {
+						node.setLayoutX(node.getLayoutX()-250);
+					} else if (node.getDepth() == 2) {
+						node.setLayoutX(node.getLayoutX()-110);
+					} else {
+						node.setLayoutX(node.getLayoutX()-40);
+					}
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);
@@ -105,7 +116,13 @@ public class Node extends StackPane{
 			
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
-					node.setLayoutX(node.getLayoutX()+40);
+					if (node.getDepth() == 1) {
+						node.setLayoutX(node.getLayoutX()+250);
+					} else if (node.getDepth() == 2) {
+						node.setLayoutX(node.getLayoutX()+110);
+					} else {
+						node.setLayoutX(node.getLayoutX()+40);
+					}
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);

@@ -96,7 +96,6 @@ public class GenericTree {
 					node.setState(0);
 				}
 			}
-			timeline.setCycleCount(timeline.getCycleCount()+1);
 			state = 1;
 		} else if (state == 1) {
 			queue.addFirst(currentNode);
@@ -105,6 +104,7 @@ public class GenericTree {
 			currentNode = traveledNode.getLast();
 			state = 2;
 		}
+		
 	}
 	public void forwardBFS() {
 		if (state == 2) {
