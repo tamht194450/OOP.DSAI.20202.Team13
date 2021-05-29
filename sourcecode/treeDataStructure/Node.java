@@ -86,18 +86,20 @@ public class Node extends StackPane{
 		queue.add(this);
 		Node currentNode;
 		
+		int distance;
+		if (depth == 0) {
+			distance = 250;
+		} else if (depth == 1) {
+			distance = 110;
+		} else {
+			distance = 40;
+		}
+		
 		while(!queue.isEmpty()) {
 			currentNode = queue.getFirst();
-			
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
-					if (node.getDepth() == 1) {
-						node.setLayoutX(node.getLayoutX()-250);
-					} else if (node.getDepth() == 2) {
-						node.setLayoutX(node.getLayoutX()-110);
-					} else {
-						node.setLayoutX(node.getLayoutX()-40);
-					}
+					node.setLayoutX(node.getLayoutX()-distance);
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);
