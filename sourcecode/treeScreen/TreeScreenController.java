@@ -296,11 +296,6 @@ public class TreeScreenController {
 
     @FXML
     void btnSearchPressed(ActionEvent event) {  // the same as method traversalBFS in GenericTree, only add an extra condition
-        System.out.println(Node.listValue);
-        for (int i:Node.listValue){
-            Node node = tree.searchNode(i);
-            node.getCircle().setFill(Color.WHITE);
-        }
 
 	    Node searchedNode = tree.searchNode(Integer.parseInt(this.tfSearchFor.getText()));
         Timeline timeline = new Timeline();
@@ -322,12 +317,26 @@ public class TreeScreenController {
                                         Node node = tree.searchNode(i);
                                         node.getCircle().setFill(Color.WHITE);
                                     }
-                                    tree.getCurrentNode().getCircle().setFill(Color.GREEN);
+                                    searchedNode.getCircle().setFill(Color.GREEN);
                                     timeline.stop();
+
+                                    Timeline resetToWhite = new Timeline();
+                                    KeyFrame reset = new KeyFrame(Duration.seconds(2),
+                                            new EventHandler<ActionEvent>() {
+                                                public void handle(ActionEvent event) {
+                                                    for (int i:Node.listValue){
+                                                        Node node = tree.searchNode(i);
+                                                        node.getCircle().setFill(Color.WHITE);
+                                                    }
+                                                }
+                                            } );
+                                    resetToWhite.getKeyFrames().add(reset);
+                                    resetToWhite.play();
                                 }
 
                             } else {
                                 timeline.stop();
+                                JOptionPane.showMessageDialog(null, "Node not found!");
                             }
                         }
                     }
@@ -347,6 +356,7 @@ public class TreeScreenController {
                     }
                 } );
 
+
         tree.setQueue(new LinkedList<Node>());
         tree.setTraveledNode(new LinkedList<Node>());
         tree.getQueue().add(tree.getRootNode());
@@ -354,6 +364,7 @@ public class TreeScreenController {
         timeline.getKeyFrames().add(pushQueue);
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
     }
     void traversalBFS() {
     	KeyFrame step = new KeyFrame(Duration.seconds(1), 
