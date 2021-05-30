@@ -22,13 +22,13 @@ public class BinaryTree extends GenericTree {
     public boolean insertNode(int parentValue, Node childNode) {
         Node parentNode = this.searchNode(parentValue);
         if (parentNode.getChildNodes().size() < 2){
-            parentNode.addChild(childNode);
+            parentNode.addChild(childNode);	
             return true;
         } else {
             Node.listValue.remove(Node.listValue.indexOf(childNode.getValue()));
             JOptionPane.showMessageDialog(null, "Node can not have more than 2 child nodes!");
             return false;
-        }
+        }	
 
     }
 

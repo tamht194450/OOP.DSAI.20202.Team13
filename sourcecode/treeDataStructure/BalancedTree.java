@@ -41,27 +41,8 @@ public class BalancedTree extends GenericTree {
 
     public boolean deleteNode(int nodeValue) {
         boolean b = super.deleteNode(nodeValue);
-        checkBalance();
+        checkBalance();	
         return b;
     }
 
-    public void backBFS() {
-        super.backBFS();
-        checkBalance();
-    }
-
-    public void forwardBFS() {
-        super.forwardBFS();
-        checkBalance();
-    }
-
-    public void backDFS() {
-        super.backDFS();
-        checkBalance();
-    }
-
-    public void forwardDFS() {
-        super.forwardDFS();
-        checkBalance();
-    }
 }

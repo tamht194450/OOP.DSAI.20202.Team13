@@ -86,7 +86,7 @@
             </VBox>
             <Label layoutX="188.0" layoutY="32.0" text="Root node:" />
             <TextField fx:id="tfRootValue" layoutX="271.0" layoutY="27.0" prefWidth="50.0" />
-            <Label fx:id="labelMaximumDepthDiff" layoutX="188.0" layoutY="100.0" text="Maximum depth diff:" visible="false" />
+            <Label fx:id="labelMaximumDepthDiff" layoutX="188.0" layoutY="100.0" text="Maximum depth diffrence:" visible="false" />
             <TextField fx:id="tfMaximumDepthDiff" layoutX="234.0" layoutY="125.0" prefWidth="50.0" visible="false" />
          </children>
       </Pane>

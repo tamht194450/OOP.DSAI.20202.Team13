@@ -15,7 +15,7 @@ import treeScreen.TreeScreen;
 
 public class MainMenuController {
 	private MainMenuScreen mainMenuScreen;
-	private String chooseTree;
+	private String chooseTree = "GenericTree";
 
     @FXML
     private ScrollPane helpPane;
@@ -50,13 +50,14 @@ public class MainMenuController {
     void btnCreateTreePressed(ActionEvent event) {
     	Node root = new Node(Integer.parseInt(this.tfRootValue.getText()));
 
-    	if (chooseTree == "GenericTree"){
+    	if (chooseTree.equals("GenericTree")){
+    		System.out.println("generic");
     	    GenericTree tree = new GenericTree(root);
     	    creatScreen(tree);
-        } else if (chooseTree == "BinaryTree"){
+        } else if (chooseTree.equals("BinaryTree")){
     	    BinaryTree tree = new BinaryTree(root);
             creatScreen(tree);
-        }else if (chooseTree == "BalancedTree"){
+        }else if (chooseTree.equals("BalancedTree")){
             BalancedTree tree = new BalancedTree(root, Integer.parseInt(tfMaximumDepthDiff.getText()));
             creatScreen(tree);
         }else{
@@ -88,11 +89,15 @@ public class MainMenuController {
 
     @FXML
     void buttonBinaryTreePressed(ActionEvent event) {
+    	this.labelMaximumDepthDiff.setVisible(false);
+        this.tfMaximumDepthDiff.setVisible(false);
         chooseTree = "BinaryTree";
     }
 
     @FXML
     void buttonGenericTreePressed(ActionEvent event) {
+    	this.labelMaximumDepthDiff.setVisible(false);
+        this.tfMaximumDepthDiff.setVisible(false);
         chooseTree = "GenericTree";
     }
 
