@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import treeScreen.TreeScreenController;
 
 public class GenericTree {
 	private Node rootNode;
@@ -17,6 +18,7 @@ public class GenericTree {
 	private Timeline timeline;
 	private int numberOfNodes;
 	private int state;
+	private TreeScreenController controller;
 	
 	public GenericTree(Node node) {
 		this.rootNode = node;
@@ -233,4 +235,11 @@ public class GenericTree {
 		this.currentNode = currentNode;
 	}
 
+	public void setController(TreeScreenController controller) {
+		this.controller = controller;
+	}
+
+	public TreeScreenController getController() {
+		return controller;
+	}
 }

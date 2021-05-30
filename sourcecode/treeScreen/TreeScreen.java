@@ -18,6 +18,7 @@ import treeScreen.MainMenu.MainMenuScreen;
 public class TreeScreen extends JFrame{
 	private MainMenuScreen mainMenu;
 	private TreeScreenController treeController;
+	private boolean balance;
 	
 	public TreeScreen(GenericTree tree) {
 		super();
@@ -71,5 +72,6 @@ public class TreeScreen extends JFrame{
 	public MainMenuScreen getMainMenu() {
 		return mainMenu;
 	}
-	
+
+
 }

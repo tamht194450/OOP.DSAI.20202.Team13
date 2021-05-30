@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.*;
@@ -98,28 +99,33 @@ public class TreeScreenController {
     @FXML
     private FlowPane queueFlowPane;
 
+    @FXML
+    private Text failBalance;
+
 
     public TreeScreenController(GenericTree tree) {
 		super();
 		this.tree = tree;
-		
+		tree.setController(this);
 	}
 	public void initialize() {
 		this.rootNode = this.tree.getRootNode();
 		this.drawingTreePane.getChildren().add(this.rootNode);
 		this.rootNode.setLayoutX(this.drawingTreePane.getPrefWidth()/2);
-
-	}
+        this.failBalance.setVisible(false);
+    }
 	
     @FXML
     void btnAddNodePressed(ActionEvent event) {
     	btnUndoInsert.setVisible(true);
         if (!Node.listValue.contains(Integer.parseInt(this.tfChild.getText()))) {
+
             Node childNode = new Node(Integer.parseInt(this.tfChild.getText()));
-            tree.insertNode(Integer.parseInt(tfParent.getText()), childNode);
-            historyInsert = childNode.getValue();
-            this.drawingTreePane.getChildren().add(childNode);
-            this.drawingTreePane.getChildren().add(childNode.getParentLine());
+            if (tree.insertNode(Integer.parseInt(tfParent.getText()), childNode)){
+                historyInsert = childNode.getValue();
+                this.drawingTreePane.getChildren().add(childNode);
+                this.drawingTreePane.getChildren().add(childNode.getParentLine());
+            };
         } else {
             JOptionPane.showMessageDialog(null, "Added node already exist!");
         }
@@ -214,6 +220,9 @@ public class TreeScreenController {
     	drawingTreePane.getChildren().remove(node);
     	tree.deleteNode(historyInsert);
     	btnUndoInsert.setVisible(false);
+
+    	Node parent = node.getParentNode();
+    	parent.getChildNodes().remove(node);
     }
     @FXML
     void btnRedoPressed(ActionEvent event) {
@@ -447,4 +456,9 @@ public class TreeScreenController {
 	public void setTreeScreen(TreeScreen treeScreen) {
 		this.treeScreen = treeScreen;
 	}
+
+    public void setFailBalance(boolean appear) {
+        this.failBalance.setVisible(appear);
+    }
 }
+

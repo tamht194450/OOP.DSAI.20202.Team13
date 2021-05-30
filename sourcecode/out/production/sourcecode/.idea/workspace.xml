@@ -2,25 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add">
+      <change afterPath="$PROJECT_DIR$/treeDataStructure/BalancedBinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/treeDataStructure/BalancedTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/test/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/test/TestMainMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/BinaryTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/BinaryTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/GenericTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeDataStructure/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/MainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/MainMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/MainMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/TestMainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/MainMenu/TestMainMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/Tree.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sourcecode/treeScreen/TreeScreenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeDataStructure/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeDataStructure/GenericTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/GenericTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeDataStructure/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeDataStructure/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/MainMenu/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/MainMenu/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/MainMenu/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/MainMenu/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/Tree.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/Tree.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,13 +108,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,7 +151,8 @@
       <workItem from="1622272626243" duration="1276000" />
       <workItem from="1622283096388" duration="1650000" />
       <workItem from="1622290007814" duration="1154000" />
-      <workItem from="1622292856316" duration="387000" />
+      <workItem from="1622292856316" duration="16209000" />
+      <workItem from="1622344393290" duration="465000" />
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1622041961254</created>
