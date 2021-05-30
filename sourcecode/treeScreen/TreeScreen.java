@@ -12,8 +12,8 @@ import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import mainMenu.MainMenuScreen;
 import treeDataStructure.GenericTree;
-import treeScreen.MainMenu.MainMenuScreen;
 
 public class TreeScreen extends JFrame{
 	private MainMenuScreen mainMenu;

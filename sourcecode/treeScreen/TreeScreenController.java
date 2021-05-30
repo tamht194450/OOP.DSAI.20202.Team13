@@ -125,8 +125,10 @@ public class TreeScreenController {
                 historyInsert = childNode.getValue();
                 this.drawingTreePane.getChildren().add(childNode);
                 this.drawingTreePane.getChildren().add(childNode.getParentLine());
-            };
+            }
+            this.tfChild.clear();
         } else {
+        	this.tfChild.clear();
             JOptionPane.showMessageDialog(null, "Added node already exist!");
         }
     }
@@ -227,9 +229,10 @@ public class TreeScreenController {
     @FXML
     void btnRedoPressed(ActionEvent event) {
 	    Node rootNode = tree.getRootNode();
-        for (Node node:rootNode.getChildNodes()){
-            deleteNodeInTree(node.getValue());
-        }
+	    while (!rootNode.getChildNodes().isEmpty()) {
+	    	this.removeFromPane(rootNode.getChildNodes().getLast());
+	    	tree.deleteNode(rootNode.getChildNodes().getLast().getValue());
+	    }
     }
     @FXML
     void btnBackMainMenuPressed(ActionEvent event) {
@@ -242,62 +245,48 @@ public class TreeScreenController {
     @FXML
     void btnDeleteNodePressed(ActionEvent event) {
         if (Node.listValue.contains(Integer.parseInt(this.tfDelete.getText()))) {
-            deleteNodeInTree(Integer.parseInt(this.tfDelete.getText()));
+        	Node delNode = tree.searchNode(Integer.parseInt(this.tfDelete.getText()));
+        	this.removeFromPane(delNode);
+        	tree.deleteNode(Integer.parseInt(this.tfDelete.getText()));
         }else{
             JOptionPane.showMessageDialog(null, "Provided node not found!");
         }
     }
-
-    public void deleteNodeInTree(int deletedValue) {
-	    LinkedList<Node> queue = new LinkedList<>();
-	    Node deleteNode = tree.searchNode(deletedValue);
-	    queue.add(deleteNode);
-	    Node currentNode;
-
-        while (true){
-            if (!queue.isEmpty()){
-                currentNode = queue.getFirst();
-                queue.removeFirst();
-
-                this.drawingTreePane.getChildren().remove(currentNode);
-                this.drawingTreePane.getChildren().remove(currentNode.getParentLine());
-                if (Node.listValue.contains(currentNode.getValue())) {
-                    int index = Node.listValue.indexOf(currentNode.getValue());
-                    Node.listValue.remove(index);
-                }
-
-                if (!currentNode.getChildNodes().isEmpty()){
-                    for (Node node:currentNode.getChildNodes()){
-                        queue.add(node);
-                    }
-                }
-            }else {
-                break;
-            }
-        }
+    
+    void removeFromPane(Node removeNode) {
+    	LinkedList<Node> queue = new LinkedList<Node>();
+		queue.add(removeNode);
+		Node currentNode;
+		
+		this.drawingTreePane.getChildren().remove(removeNode.getParentLine());
+		this.drawingTreePane.getChildren().remove(removeNode);
+		
+		while(!queue.isEmpty()) {
+			currentNode = queue.getFirst();
+			
+			if (!currentNode.getChildNodes().isEmpty()) {
+				for (Node node: currentNode.getChildNodes()) {
+						this.drawingTreePane.getChildren().remove(node.getParentLine());
+						this.drawingTreePane.getChildren().remove(node);
+				}
+			}
+			queue.removeFirst();
+		}
     }
+
 
     @FXML
     void buttonUpdate(ActionEvent event) {
-        if (!Node.listValue.contains(Integer.parseInt(this.tfUpdateNewValue.getText()))) {
-            Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
-            Node newNode = new Node(Integer.parseInt(this.tfUpdateNewValue.getText()));
-
-            this.drawingTreePane.getChildren().remove(oldNode);
-            newNode.setLayoutX(oldNode.getLayoutX());
-            newNode.setLayoutY(oldNode.getLayoutY());
-            this.drawingTreePane.getChildren().add(newNode);
-
-            Node parent = oldNode.getParentNode();
-
-            newNode.setChildNodes(oldNode.getChildNodes());
-            newNode.setParentNode(parent);
-
-            int index = parent.getChildNodes().indexOf(oldNode);
-            parent.getChildNodes().set(index, newNode);
-
-            int valueIndex = Node.listValue.indexOf(Integer.parseInt(this.tfUpdateOldValue.getText()));
-            Node.listValue.remove(valueIndex);
+    	for (int i:Node.listValue) {
+    		System.out.println(i);
+    	}
+        if (Node.listValue.contains(Integer.parseInt(this.tfUpdateOldValue.getText()))) {
+            if (!Node.listValue.contains(Integer.parseInt(this.tfUpdateNewValue.getText()))) {
+	            Node oldNode = tree.searchNode(Integer.parseInt(this.tfUpdateOldValue.getText()));
+	            oldNode.setValue(Integer.parseInt(this.tfUpdateNewValue.getText()));    
+            } else {
+                JOptionPane.showMessageDialog(null, "New node has been in tree!");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Node not found!");
         }

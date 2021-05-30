@@ -1,9 +1,9 @@
 package test;
 
+import mainMenu.MainMenuScreen;
 import treeDataStructure.GenericTree;
 import treeDataStructure.Node;
 import treeScreen.TreeScreen;
-import treeScreen.MainMenu.MainMenuScreen;
 
 public class Test {
     public static void main(String[] args) {

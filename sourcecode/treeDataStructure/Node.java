@@ -21,14 +21,6 @@ public class Node extends StackPane{
 	private int depth = 0;
 	private int state = 1;
 	private boolean leave;
-
-	public int getDepth() {	
-		return depth;
-	}
-
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
 	
 	public Node(int value) {
 		this.value = value;
@@ -80,6 +72,9 @@ public class Node extends StackPane{
 			if (node.getValue() == nodeValue) {
 				this.childNodes.remove(node);
 			}
+		}
+		if (childNodes.isEmpty()) {
+			this.leave = true;
 		}
 	}
 	
@@ -136,9 +131,6 @@ public class Node extends StackPane{
 		}
 	}
 
-	public void setChildNodes(LinkedList<Node> childNodes) {
-		this.childNodes = childNodes;
-	}
 
 	public boolean equals(Object o) {
     	if (o instanceof Node) {
@@ -152,6 +144,18 @@ public class Node extends StackPane{
     		return false;
     	}
     }
+	
+	public void setChildNodes(LinkedList<Node> childNodes) {
+		this.childNodes = childNodes;
+	}
+	
+	public int getDepth() {	
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
 
 	public int getValue() {
 		return value;
@@ -189,7 +193,11 @@ public class Node extends StackPane{
 	}
 
 	public void setValue(int value) {
+		int valueIndex = Node.listValue.indexOf(this.value);
+        Node.listValue.remove(valueIndex);
 		this.value = value;
+		this.nodeValue.setText(value+"");
+		Node.listValue.add(value);
 	}
 
 	public boolean isLeave() {

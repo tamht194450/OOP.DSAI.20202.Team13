@@ -16,18 +16,13 @@ public class GenericTree {
 	private LinkedList<Node> traveledNode;
 	private Node currentNode;
 	private Timeline timeline;
-	private int numberOfNodes;
 	private int state;
 	private TreeScreenController controller;
 	
 	public GenericTree(Node node) {
 		this.rootNode = node;
-		this.numberOfNodes = 1;
 	}
 
-	public GenericTree() {
-
-	}
 
 	public Node searchNode(int nodeValue) {
 		if (rootNode.getValue() == nodeValue) {
@@ -58,7 +53,6 @@ public class GenericTree {
 	public boolean insertNode(int parentValue, Node childNode) {
 		Node parentNode = this.searchNode(parentValue);
 		parentNode.addChild(childNode);
-		numberOfNodes ++;
 		return true;
 	}
 	public boolean deleteNode(int nodeValue) {
@@ -73,7 +67,6 @@ public class GenericTree {
 				for (Node node: currentNode.getChildNodes()) {
 					if (node.getValue() == nodeValue) {
 						currentNode.deleteChild(nodeValue);
-						currentNode.deleteUpdate();
 						return true;
 					} else {
 						queue.add(node);

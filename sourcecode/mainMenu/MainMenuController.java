@@ -1,4 +1,4 @@
-package treeScreen.MainMenu;
+package mainMenu;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -51,7 +51,6 @@ public class MainMenuController {
     	Node root = new Node(Integer.parseInt(this.tfRootValue.getText()));
 
     	if (chooseTree.equals("GenericTree")){
-    		System.out.println("generic");
     	    GenericTree tree = new GenericTree(root);
     	    creatScreen(tree);
         } else if (chooseTree.equals("BinaryTree")){
@@ -72,6 +71,7 @@ public class MainMenuController {
         treeScreen.setMainMenu(mainMenuScreen);
         this.mainMenuScreen.setVisible(false);
         this.mainMenuScreen.getTreeScreen().setVisible(true);
+        this.mainMenuScreen.getTreeScreen().setTitle(chooseTree);
     }
 
 	public void setMainMenuScreen(MainMenuScreen mainMenuScreen) {

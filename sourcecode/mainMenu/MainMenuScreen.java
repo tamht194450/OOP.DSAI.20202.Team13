@@ -1,4 +1,4 @@
-package treeScreen.MainMenu;
+package mainMenu;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -47,7 +47,7 @@ public class MainMenuScreen extends JFrame{
 				// TODO Auto-generated method stub
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass()
-							.getResource("/treeScreen/MainMenu/MainMenu.fxml"));
+							.getResource("MainMenu.fxml"));
 					loader.setController(controller);
 					Parent root = loader.load();
 					fxPanel.setScene(new Scene(root));
