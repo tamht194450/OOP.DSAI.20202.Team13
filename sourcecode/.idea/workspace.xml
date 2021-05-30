@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+    <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="add" />
+=======
+<<<<<<< HEAD
     <list default="true" id="bb75ee90-3e7d-474a-9e67-2be49bd2063b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
@@ -61,6 +64,7 @@
       <change beforePath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/treeScreen/TreeScreenController.java" afterDir="false" />
 >>>>>>> fd880a6ca72f6adbd5b175ed6ee3b5f77b79c661
     </list>
+>>>>>>> main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,13 +149,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -190,8 +196,13 @@
       <workItem from="1622272626243" duration="1276000" />
       <workItem from="1622283096388" duration="1650000" />
       <workItem from="1622290007814" duration="1154000" />
+<<<<<<< HEAD
+      <workItem from="1622292856316" duration="16209000" />
+      <workItem from="1622344393290" duration="2280000" />
+=======
       <workItem from="1622292856316" duration="2493000" />
 >>>>>>> fd880a6ca72f6adbd5b175ed6ee3b5f77b79c661
+>>>>>>> main
     </task>
     <task id="LOCAL-00001" summary="add">
       <created>1622041961254</created>

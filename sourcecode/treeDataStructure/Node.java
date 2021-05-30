@@ -20,8 +20,7 @@ public class Node extends StackPane{
 	private Line parentLine;
 	private int depth = 0;
 	private int state = 1;
-	Node left;
-	Node right;
+	private boolean leave;
 
 	public int getDepth() {
 		return depth;
@@ -66,10 +65,22 @@ public class Node extends StackPane{
 		line.setLayoutX(this.getLayoutX()+30);
 		line.setLayoutY(this.getLayoutY()+60);
 		line.setEndX(childNode.getLayoutX()-this.getLayoutX());
+<<<<<<< HEAD
+		line.setEndY(20);
+
+
+		this.childNodes.add(childNode);
+		childNode.setParentNode(this);
+		childNode.setDepth(this.getDepth()+1);
+
+		childNode.setLeave(true);
+		this.setLeave(false);
+=======
 		line.setEndY(40);
 		
 		this.childNodes.add(childNode);
 		childNode.setParentNode(this);
+>>>>>>> main
 	}
 	public void deleteChild(int nodeValue) {
         Node.listValue.remove(Node.listValue.indexOf(nodeValue));
@@ -188,6 +199,14 @@ public class Node extends StackPane{
 
 	public void setValue(int value) {
 		this.value = value;
+	}
+
+	public boolean isLeave() {
+		return leave;
+	}
+
+	public void setLeave(boolean leave) {
+		this.leave = leave;
 	}
 }
 

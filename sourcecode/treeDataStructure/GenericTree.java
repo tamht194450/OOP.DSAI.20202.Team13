@@ -8,6 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import treeScreen.TreeScreenController;
 
 public class GenericTree {
 	private Node rootNode;
@@ -17,6 +18,7 @@ public class GenericTree {
 	private Timeline timeline;
 	private int numberOfNodes;
 	private int state;
+	private TreeScreenController controller;
 	
 	public GenericTree(Node node) {
 		this.rootNode = node;
@@ -96,6 +98,7 @@ public class GenericTree {
 					node.setState(0);
 				}
 			}
+			timeline.setCycleCount(timeline.getCycleCount()+1);
 			state = 1;
 		} else if (state == 1) {
 			queue.addFirst(currentNode);
@@ -104,7 +107,6 @@ public class GenericTree {
 			currentNode = traveledNode.getLast();
 			state = 2;
 		}
-		
 	}
 	public void forwardBFS() {
 		if (state == 2) {
@@ -233,4 +235,11 @@ public class GenericTree {
 		this.currentNode = currentNode;
 	}
 
+	public void setController(TreeScreenController controller) {
+		this.controller = controller;
+	}
+
+	public TreeScreenController getController() {
+		return controller;
+	}
 }

@@ -97,6 +97,14 @@
                                           <Insets left="10.0" top="5.0" />
                                        </HBox.margin>
                                     </TextField>
+                                    <Text fx:id="failBalance" fill="#f80b0b" strokeType="OUTSIDE" strokeWidth="0.0" text="Warning: the tree is not balanced with specific lenght!">
+                                       <HBox.margin>
+                                          <Insets left="200.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Text>
                                  </children>
                               </HBox>
                               <HBox prefHeight="100.0" prefWidth="200.0">
