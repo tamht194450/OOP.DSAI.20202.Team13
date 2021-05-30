@@ -48,10 +48,16 @@ public class Node extends StackPane{
 	
 	public void addChild(Node childNode) {
 		this.addUpdate();
+		childNode.setDepth(this.getDepth()+1);
+
 		
-		childNode.setLayoutY(this.getLayoutY()+80);
+		childNode.setLayoutY(this.getLayoutY()+100);
 		if (this.childNodes.isEmpty()) {
 			childNode.setLayoutX(this.getLayoutX());
+		} else if (childNode.getDepth() == 1){
+			childNode.setLayoutX(this.childNodes.getLast().getLayoutX()+500);
+		} else if (childNode.getDepth() == 2){
+			childNode.setLayoutX(this.childNodes.getLast().getLayoutX()+220);
 		} else {
 			childNode.setLayoutX(this.childNodes.getLast().getLayoutX()+80);
 		}
@@ -59,6 +65,7 @@ public class Node extends StackPane{
 		line.setLayoutX(this.getLayoutX()+30);
 		line.setLayoutY(this.getLayoutY()+60);
 		line.setEndX(childNode.getLayoutX()-this.getLayoutX());
+<<<<<<< HEAD
 		line.setEndY(20);
 
 
@@ -68,6 +75,12 @@ public class Node extends StackPane{
 
 		childNode.setLeave(true);
 		this.setLeave(false);
+=======
+		line.setEndY(40);
+		
+		this.childNodes.add(childNode);
+		childNode.setParentNode(this);
+>>>>>>> main
 	}
 	public void deleteChild(int nodeValue) {
         Node.listValue.remove(Node.listValue.indexOf(nodeValue));
@@ -84,12 +97,20 @@ public class Node extends StackPane{
 		queue.add(this);
 		Node currentNode;
 		
+		int distance;
+		if (depth == 0) {
+			distance = 250;
+		} else if (depth == 1) {
+			distance = 110;
+		} else {
+			distance = 40;
+		}
+		
 		while(!queue.isEmpty()) {
 			currentNode = queue.getFirst();
-			
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
-					node.setLayoutX(node.getLayoutX()-40);
+					node.setLayoutX(node.getLayoutX()-distance);
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);
@@ -108,7 +129,13 @@ public class Node extends StackPane{
 			
 			if (!currentNode.getChildNodes().isEmpty()) {
 				for (Node node: currentNode.getChildNodes()) {
-					node.setLayoutX(node.getLayoutX()+40);
+					if (node.getDepth() == 1) {
+						node.setLayoutX(node.getLayoutX()+250);
+					} else if (node.getDepth() == 2) {
+						node.setLayoutX(node.getLayoutX()+110);
+					} else {
+						node.setLayoutX(node.getLayoutX()+40);
+					}
 					node.getParentLine().setLayoutX(currentNode.getLayoutX()+30);
 					node.getParentLine().setEndX(node.getLayoutX()-currentNode.getLayoutX());
 					queue.add(node);
